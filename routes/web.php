@@ -39,3 +39,7 @@ Route::view('/ayuda', 'extra.ayuda');
 Route::view('/contacto', 'extra.contacto');
 
 Route::view('/novedades', 'extra.novedades');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
