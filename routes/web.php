@@ -16,3 +16,26 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+/*Rutas para modulos del sistema
+acceso a todas las funciones de los controladores*/
+Route::resource('tipo', 'TipoController');
+
+Route::resource('proveedor', 'ProveedorController');
+
+Route::resource('producto', 'ProductoController');
+
+Route::resource('tarea', 'tareaController');
+
+Route::resource('reporte', 'ReporteController');
+
+Route::resource('equipo', 'EquipoController');
+
+/*Rutas para secciones extras
+acceso a vistas*/
+
+Route::view('/ayuda', 'extra.ayuda');
+
+Route::view('/contacto', 'extra.contacto');
+
+Route::view('/novedades', 'extra.novedades');
