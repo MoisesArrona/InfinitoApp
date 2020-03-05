@@ -47,9 +47,12 @@ class ProductoController extends Controller
             $name = $request->nombre.$request->codigo.$file->getClientOriginalName();
             $file->move(public_path().'/imagenes/productos/',$name);
         }
-        $producto = request()->except('_token');
+        /*$producto = request()->except('_token');
         $producto['foto']=$name;
-        Producto::insert($producto);
+        Producto::create($producto);*/
+        $producto = new Producto($request->input());
+        $producto->foto = $name;
+        $producto->save();
         return redirect('producto/')->with('estatus', 'Se guardo correctamente');
     }
 
@@ -85,9 +88,10 @@ class ProductoController extends Controller
      * @param  \App\Producto  $producto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Producto $producto)
     {
-        $producto = request()->except('_method', '_token', 'foto');
+        //$producto = request()->except('_method', '_token', 'foto');
+        $producto->fill($request->all());
         if($request->hasFile('foto')){
             //asiganmos la foto a la variable y cambiamos el nombre y movemos el archivo
             $file = $request->file('foto');
@@ -95,8 +99,8 @@ class ProductoController extends Controller
             $producto['foto']=$name;
             $file->move(public_path().'/imagenes/productos/',$name);
         }
-        Producto::where('id','=',$id)->update($producto);
-        return redirect('producto/'.$id)->with('estatus', 'Se edito correctamente');
+        $producto->save();
+        return redirect('producto/'.$producto->id)->with('estatus', 'Se edito correctamente');
     }
 
     /**

@@ -10,6 +10,7 @@
                     <div class="card-body">
                     <h5 class="card-title">{{$tarea->estatus}}</h5>
                     <p class="card-text">{{$tarea->descripcion}}</p>
+                    <p class="card-text">{{$tarea->id_usuario}}</p>
                     </div>
                     <div class="card-footer">
                         <a class="btn btn-warning" href="tarea/{{$tarea->id}}/edit">Editar</a>

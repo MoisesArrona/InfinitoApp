@@ -36,8 +36,10 @@ class ProveedorController extends Controller
      */
     public function store(Request $request)
     {
-        $proveedor = request()->except('_token');
-        Proveedor::insert($proveedor);
+        /*$proveedor = request()->except('_token');
+        Proveedor::create($proveedor);*/
+        $proveedor = new Proveedor($request->input());
+        $proveedor->save();
         return redirect('proveedor/')->with('estatus', 'Se guardo correctamente');
     }
 
@@ -71,11 +73,13 @@ class ProveedorController extends Controller
      * @param  \App\Proveedor  $proveedor
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Proveedor $proveedor)
     {
-        $proveedor = request()->except('_method', '_token');
-        Proveedor::where('id','=',$id)->update($proveedor);
-        return redirect('proveedor/'.$id)->with('estatus', 'Se edito correctamente');
+        /*$proveedor = request()->except('_method', '_token');
+        Proveedor::where('id','=',$id)->update($proveedor);*/
+        $proveedor->fill($request->all());
+        $proveedor->save();
+        return redirect('proveedor/'.$proveedor->id)->with('estatus', 'Se edito correctamente');
     }
 
     /**

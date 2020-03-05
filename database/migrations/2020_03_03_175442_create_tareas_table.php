@@ -18,8 +18,8 @@ class CreateTareasTable extends Migration
             $table->string('nombre', 50);
             $table->string('descripcion', 50);
             $table->string('estatus', 50);
-            /*$table->unsignedBigInteger('id_usuario');
-            $table->foreign('id_usuario')->references('id')->on('users');*/
+            $table->unsignedBigInteger('id_usuario');
+            $table->foreign('id_usuario')->references('id')->on('users');
             $table->timestamps();
         });
     }

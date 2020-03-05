@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Tarea;
+use App\User;
 use Illuminate\Http\Request;
 
 class TareaController extends Controller
@@ -25,8 +26,8 @@ class TareaController extends Controller
      */
     public function create()
     {
-        /*$usuario = User::all();*/
-        return view('tarea.crear');
+        $usuarios = User::all();
+        return view('tarea.crear', compact('usuarios'));
     }
 
     /**
@@ -37,8 +38,10 @@ class TareaController extends Controller
      */
     public function store(Request $request)
     {
-        $tarea = request()->except('_token');
-        Tarea::insert($tarea);
+        /*$tarea = request()->except('_token');
+        Tarea::insert($tarea);*/
+        $tarea = new Tarea($request->input());
+        $tarea->save();
         return redirect('tarea/')->with('estatus', 'Se guardo correctamente');
     }
 
@@ -62,7 +65,8 @@ class TareaController extends Controller
      */
     public function edit(Tarea $tarea)
     {
-        return view('tarea/editar', compact('tarea'));
+        $usuarios = User::all();
+        return view('tarea/editar', compact(['tarea', 'usuarios']));
     }
 
     /**
@@ -72,11 +76,12 @@ class TareaController extends Controller
      * @param  \App\Tarea  $tarea
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Tarea $tarea)
     {
-        $tarea = request()->except('_method', '_token');
-        Tarea::where('id','=',$id)->update($tarea);
-        return redirect('tarea/'.$id)->with('estatus', 'Se edito correctamente');
+        /*$tarea = request()->except('_method', '_token');
+        Tarea::where('id','=',$id)->update($tarea);*/
+        $tarea->fill($request->all());
+        return redirect('tarea/'.$tarea->id)->with('estatus', 'Se edito correctamente');
     }
 
     /**

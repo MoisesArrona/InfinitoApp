@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Equipo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EquipoController extends Controller
 {
@@ -37,8 +38,12 @@ class EquipoController extends Controller
      */
     public function store(Request $request)
     {
-        $equipo = request()->except('_token');
-        Equipo::insert($equipo);
+        /*$equipo = request()->except('_token');
+        Equipo::insert($equipo);*/
+        $equipo = new Equipo($request->input());
+        //Accedemos a los datos del usuario logeado
+        $equipo->id_usuario = Auth::user()->id;
+        $equipo->save();
         return redirect('equipo/')->with('estatus', 'Se guardo correctamente');
     }
 

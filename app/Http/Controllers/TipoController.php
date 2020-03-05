@@ -36,8 +36,10 @@ class TipoController extends Controller
      */
     public function store(Request $request)
     {
-        $tipo = request()->except('_token');
-        Tipo::insert($tipo);
+        /*$tipo = request()->except('_token');
+        Tipo::create($tipo);*/
+        $tipo = new Tipo($request->input());
+        $tipo->save();
         return redirect('tipo/')->with('estatus', 'Se guardo correctamente');
     }
 
@@ -71,11 +73,13 @@ class TipoController extends Controller
      * @param  \App\Tipo  $tipo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Tipo $tipo)
     {
-        $tipo = request()->except('_method', '_token');
-        Tipo::where('id','=',$id)->update($tipo);
-        return redirect('tipo/'.$id)->with('estatus', 'Se edito correctamente');
+        /*$tipo = request()->except('_method', '_token');
+        Tipo::where('id','=',$id)->update($tipo);*/
+        $tipo->fill($request->all());
+        $tipo->save();
+        return redirect('tipo/'.$tipo->id)->with('estatus', 'Se edito correctamente');
     }
 
     /**

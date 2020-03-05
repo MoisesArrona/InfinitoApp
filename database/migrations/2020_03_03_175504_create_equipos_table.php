@@ -27,8 +27,8 @@ class CreateEquiposTable extends Migration
             $table->string('puerto', 50);
             $table->string('usuario', 50);
             $table->string('contraseña', 50);
-            /*$table->unsignedBigInteger('id_usuario');
-            $table->foreign('id_usuario')->references('id')->on('users');*/
+            $table->unsignedBigInteger('id_usuario');
+            $table->foreign('id_usuario')->references('id')->on('users');
             $table->timestamps();
         });
     }

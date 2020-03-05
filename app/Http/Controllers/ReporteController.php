@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Reporte;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ReporteMail;
+use Facade\FlareClient\Report;
 use Illuminate\Http\Request;
 
 class ReporteController extends Controller
@@ -46,9 +47,14 @@ class ReporteController extends Controller
             $name = $request->nombre.$request->codigo.$file->getClientOriginalName();
             $file->move(public_path().'/imagenes/reportes/',$name);
         }
-        $reporte = request()->except('_token');
+        /*$reporte = request()->except('_token');
         $reporte['foto']=$name;
-        Reporte::insert($reporte);
+        Reporte::insert($reporte);*/
+        $reporte = new Reporte($request->input());
+        $reporte->foto = $name;
+        //accedemos a los datos del usuario
+        $reporte->id_usuario = auth()->user()->id;
+        $reporte->save();
         //Envio de correo de alta de reporte
         Mail::to('arronamoisesar@gmail.com')->send(new ReporteMail($reporte));
         //return new ReporteMail($reporte);
@@ -86,9 +92,10 @@ class ReporteController extends Controller
      * @param  \App\Reporte  $reporte
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Reporte $reporte)
     {
-        $reporte = request()->except('_method', '_token', 'foto');
+        //$reporte = request()->except('_method', '_token', 'foto');
+        $reporte->fill($request->all());
         if($request->hasFile('foto')){
             //asiganmos la foto a la variable y cambiamos el nombre y movemos el archivo
             $file = $request->file('foto');
@@ -96,8 +103,8 @@ class ReporteController extends Controller
             $reporte['foto']=$name;
             $file->move(public_path().'/imagenes/reportes/',$name);
         }
-        Reporte::where('id','=',$id)->update($reporte);
-        return redirect('reporte/'.$id)->with('estatus', 'Se edito correctamente');
+        //Reporte::where('id','=',$id)->update($reporte);
+        return redirect('reporte/'.$reporte->id)->with('estatus', 'Se edito correctamente');
     }
 
     /**
