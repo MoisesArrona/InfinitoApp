@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.plantilla')
 
-@section('content')
+@section('contenido')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -58,6 +58,22 @@
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Empresa') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password-confirm" type="text" class="form-control" name="empresa" required autocomplete="new-password">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Rol') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password-confirm" type="num" class="form-control" name="id_rol" required autocomplete="new-password">
                             </div>
                         </div>
 

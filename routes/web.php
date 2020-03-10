@@ -17,19 +17,28 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-/*Rutas para modulos del sistema
-acceso a todas las funciones de los controladores*/
-Route::resource('tipo', 'TipoController');
+/*Proteger rutas a nivel de rol por middleware*/
+Route::middleware(['administrador'])->group(function(){
+    /*Rutas para modulos del sistema
+    acceso a todas las funciones de los controladores*/
+    Route::resource('tipo', 'TipoController');
 
-Route::resource('proveedor', 'ProveedorController');
+    Route::resource('proveedor', 'ProveedorController');
 
-Route::resource('producto', 'ProductoController');
+    Route::resource('producto', 'ProductoController');
 
-Route::resource('tarea', 'tareaController');
+    Route::resource('tarea', 'tareaController');
 
-Route::resource('reporte', 'ReporteController');
+    Route::resource('equipo', 'EquipoController');
+});
 
-Route::resource('equipo', 'EquipoController');
+Route::middleware(['personal'])->group(function(){
+
+});
+
+Route::middleware(['cliente'])->group(function(){
+    Route::resource('reporte', 'ReporteController');
+});
 
 /*Rutas para secciones extras
 acceso a vistas*/
@@ -39,6 +48,8 @@ Route::view('/ayuda', 'extra.ayuda');
 Route::view('/contacto', 'extra.contacto');
 
 Route::view('/novedades', 'extra.novedades');
+
+/*Login*/
 
 Auth::routes();
 
