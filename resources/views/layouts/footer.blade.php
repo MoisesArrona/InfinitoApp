@@ -1,11 +1,9 @@
-<!-- Footer -->
-<footer class="page-footer font-small blue">
-
-  <!-- Copyright -->
-  <div class="footer-copyright text-center py-3">© 2020 Copyright:
-    <a href="https://mdbootstrap.com/"> infinito.com</a>
+<footer class="sticky-footer bg-white">
+  <div class="container my-auto">
+    <div class="copyright text-center my-auto">
+      <span>Copyright &copy; Infinito computación 2020</span>
+      <br>
+      <span>Diseñado y desarrollado por Moises Arrona</span>
+    </div>
   </div>
-  <!-- Copyright -->
-
 </footer>
-<!-- Footer -->

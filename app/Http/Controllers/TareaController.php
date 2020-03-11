@@ -81,6 +81,7 @@ class TareaController extends Controller
         /*$tarea = request()->except('_method', '_token');
         Tarea::where('id','=',$id)->update($tarea);*/
         $tarea->fill($request->all());
+        $tarea->save();
         return redirect('tarea/'.$tarea->id)->with('estatus', 'Se edito correctamente');
     }
 

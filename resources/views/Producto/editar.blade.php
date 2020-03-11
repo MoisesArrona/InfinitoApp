@@ -1,5 +1,7 @@
 @extends('layouts.plantilla')
 
+@section('title', 'Editar producto')
+
 @section('contenido')
     <form action="/producto/{{$producto->id}}" method="post" enctype="multipart/form-data">
         @method('PUT')

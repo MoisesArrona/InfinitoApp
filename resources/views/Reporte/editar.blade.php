@@ -1,5 +1,7 @@
 @extends('layouts.plantilla')
 
+@section('title', 'Editar reporte')
+
 @section('contenido')
     <form action="/reporte/{{$reporte->id}}" method="post" enctype="multipart/form-data">
         @method('PUT')

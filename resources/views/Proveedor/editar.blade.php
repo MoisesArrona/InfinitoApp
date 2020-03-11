@@ -1,5 +1,7 @@
 @extends('layouts.plantilla')
 
+@section('title', 'Editar proveedor')
+
 @section('contenido')
     <form action="/proveedor/{{$proveedor->id}}" method="post">
         @method('PUT')

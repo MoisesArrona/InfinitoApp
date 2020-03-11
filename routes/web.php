@@ -30,13 +30,7 @@ Route::middleware(['administrador'])->group(function(){
     Route::resource('tarea', 'tareaController');
 
     Route::resource('equipo', 'EquipoController');
-});
 
-Route::middleware(['personal'])->group(function(){
-
-});
-
-Route::middleware(['cliente'])->group(function(){
     Route::resource('reporte', 'ReporteController');
 });
 

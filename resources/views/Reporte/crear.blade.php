@@ -1,5 +1,7 @@
 @extends('layouts.plantilla')
 
+@section('title', 'Dar de alta reporte')
+
 @section('contenido')
     <form action="/reporte" method="post" enctype="multipart/form-data">
         @csrf
