@@ -32,6 +32,8 @@ Route::middleware(['administrador'])->group(function(){
     Route::resource('equipo', 'EquipoController');
 
     Route::resource('reporte', 'ReporteController');
+
+    Route::resource('usuario', 'UserController');
 });
 
 /*Rutas para secciones extras

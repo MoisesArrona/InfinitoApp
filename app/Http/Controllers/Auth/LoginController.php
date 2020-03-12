@@ -40,7 +40,7 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    //Redirecciona a login
+    //Redirecciona a login al cerrar sesión
     protected function loggedOut(Request $request) {
         return redirect('/login');
     }

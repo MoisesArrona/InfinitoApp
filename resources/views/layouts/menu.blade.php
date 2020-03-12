@@ -53,7 +53,7 @@
 
     <!-- Nav Item - usuario -->
     <li class="nav-item">
-        <a class="nav-link" href="/user">
+        <a class="nav-link" href="/usuario">
           <i class="fas fa-user"></i>
           <span>Usuarios</span></a>
     </li>
