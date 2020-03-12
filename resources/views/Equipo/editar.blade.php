@@ -1,5 +1,7 @@
 @extends('layouts.plantilla')
 
+@section('title', 'Editar equipo')
+
 @section('contenido')
     <form action="/equipo/{{$equipo->id}}" method="post">
         @method('PUT')

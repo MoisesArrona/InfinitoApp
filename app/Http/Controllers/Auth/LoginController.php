@@ -42,6 +42,6 @@ class LoginController extends Controller
 
     //Redirecciona a login al cerrar sesión
     protected function loggedOut(Request $request) {
-        return redirect('/login');
+        return redirect('/');
     }
 }

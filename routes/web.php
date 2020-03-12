@@ -13,8 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/*Redirecciona al login de la aplicación como raíz*/
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 /*Proteger rutas a nivel de rol por middleware*/

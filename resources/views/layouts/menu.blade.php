@@ -1,7 +1,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Titulo de la aplicacion -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
       <div class="sidebar-brand-icon rotate-n-15">
         <i class="fas fa-laugh-wink"></i>
       </div>
@@ -57,6 +57,13 @@
           <i class="fas fa-user"></i>
           <span>Usuarios</span></a>
     </li>
+
+    <!-- Nav Item - usuario -->
+    <li class="nav-item">
+      <a class="nav-link" href="/equipo">
+        <i class="fas fa-desktop"></i>
+        <span>Equipo</span></a>
+  </li>
 
     <!-- Divicion -->
     <hr class="sidebar-divider">

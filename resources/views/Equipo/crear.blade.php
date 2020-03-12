@@ -1,5 +1,7 @@
 @extends('layouts.plantilla')
 
+@section('title', 'Dar de alta equipo')
+
 @section('contenido')
     <form action="/equipo" method="post">
         @csrf

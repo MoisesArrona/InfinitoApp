@@ -36,8 +36,7 @@ class TipoController extends Controller
      */
     public function store(Request $request)
     {
-        /*$tipo = request()->except('_token');
-        Tipo::create($tipo);*/
+        $validacion = 
         $tipo = new Tipo($request->input());
         $tipo->save();
         return redirect('tipo/')->with('estatus', 'Se guardo correctamente');

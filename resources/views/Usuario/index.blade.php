@@ -3,6 +3,7 @@
 @section('title', 'Usuarios')
 
 @section('contenido')
+    @include('mensajes.satisfactorio')
     
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <a href="usuario/create" class="btn btn-primary btn-icon-split">

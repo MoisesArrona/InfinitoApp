@@ -3,6 +3,8 @@
 @section('title', 'Informacion sobre producto')
 
 @section('contenido')
+    @include('mensajes.satisfactorio')
+
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <a href="/producto" class="btn btn-primary btn-icon-split">
             <span class="icon text-white-50">

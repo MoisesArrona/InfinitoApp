@@ -1,6 +1,8 @@
 @extends('layouts.plantilla')
 
 @section('contenido')
+    @include('mensajes.satisfactorio')
+
     <div class="col-sm">
         <div class="card bg-light">
             <div class="card-header">{{$tarea->nombre}}</div>

@@ -7,12 +7,12 @@
         @csrf
         <div class="form-group">
             <label for="">Nombre</label>
-            <input class="form-control form-control-user" type="text" name="nombre">
+            <input class="form-control form-control-user" type="text" name="nombre" required>
         </div>
         
         <div class="form-group">
             <label for="">Descripcion</label>
-            <input class="form-control" type="text" name="descripcion" >
+            <input class="form-control" type="text" name="descripcion" required>
         </div>
         <button class="btn btn-primary" type="submit">Guardar</button>
     </form>

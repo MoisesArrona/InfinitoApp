@@ -56,9 +56,9 @@ class ReporteController extends Controller
         $reporte->id_usuario = auth()->user()->id;
         $reporte->save();
         //Envio de correo de alta de reporte
-        Mail::to('arronamoisesar@gmail.com')->send(new ReporteMail($reporte));
-        //return new ReporteMail($reporte);
-        return redirect('reporte/')->with('estatus', 'Se guardo correctamente');
+        Mail::to(auth()->user()->email)->send(new ReporteMail($reporte));
+        return new ReporteMail($reporte);
+        //return redirect('reporte/')->with('estatus', 'Se guardo correctamente');
     }
 
     /**

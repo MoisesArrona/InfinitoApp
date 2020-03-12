@@ -8,11 +8,11 @@
         @csrf
         <div class="form-group">
             <label for="">Nombre</label>
-            <input class="form-control" type="text" value="{{$tipo->nombre}}" name="nombre">
+            <input class="form-control" type="text" value="{{$tipo->nombre}}" name="nombre" required>
         </div>
         <div class="form-group">
             <label for="">Descripcion</label>
-            <input class="form-control" type="text" value="{{$tipo->descripcion}}" name="descripcion" >
+            <input class="form-control" type="text" value="{{$tipo->descripcion}}" name="descripcion" required>
         </div>
         <button class="btn btn-primary" type="submit">Guardar</button>
     </form>
