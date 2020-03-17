@@ -16,20 +16,6 @@
         Principal
     </div>
 
-    <!-- Nav Item - tipo -->
-    <li class="nav-item">
-      <a class="nav-link" href="/tipo">
-        <i class="fas fa-tags"></i>
-        <span>Tipo de material</span></a>
-    </li>
-
-    <!-- Nav Item - proveedor -->
-    <li class="nav-item">
-      <a class="nav-link" href="/proveedor">
-        <i class="fas fa-truck-moving"></i>
-        <span>Proveedores</span></a>
-    </li>
-
     <!-- Nav Item - producto -->
     <li class="nav-item">
       <a class="nav-link" href="/producto">
@@ -63,7 +49,7 @@
       <a class="nav-link" href="/equipo">
         <i class="fas fa-desktop"></i>
         <span>Equipo</span></a>
-  </li>
+    </li>
 
     <!-- Divicion -->
     <hr class="sidebar-divider">
