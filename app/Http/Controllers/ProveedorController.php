@@ -63,7 +63,7 @@ class ProveedorController extends Controller
      * @param  \App\Proveedor  $proveedor
      * @return \Illuminate\Http\Response
      */
-    public function edit(Proveedor $proveedor)
+    public function edit(ProveedorGuardarRequest $proveedor)
     {
         return view('proveedor.editar', compact('proveedor'));
     }

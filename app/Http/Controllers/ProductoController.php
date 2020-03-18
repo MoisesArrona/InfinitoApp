@@ -49,7 +49,6 @@ class ProductoController extends Controller
             $name = $request->codigo.$file->getClientOriginalName();
             $file->move(public_path().'/imagenes/productos/',$name);
             $producto->foto = $name;
-            return $file;
         }
         /*$producto = request()->except('_token');
         $producto['foto']=$name;

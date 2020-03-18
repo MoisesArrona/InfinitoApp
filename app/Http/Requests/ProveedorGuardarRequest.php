@@ -29,6 +29,7 @@ class ProveedorGuardarRequest extends FormRequest
             'contacto' => ['required', 'max:50'],
             'telefono' => ['required', 'max:50'],
             'correo' => ['required', 'email', 'max:100'],
+
             'web' => ['required', 'max:50'],
             'domicilio' => ['required', 'max:100'],
         ];

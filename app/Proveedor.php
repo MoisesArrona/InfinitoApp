@@ -10,4 +10,5 @@ class Proveedor extends Model
     protected $table = 'proveedores';
     //Asignacion dde campos en asignacion masiva
     protected $fillable = ['nombre', 'contacto', 'telefono', 'correo', 'web', 'domicilio'];
+
 }

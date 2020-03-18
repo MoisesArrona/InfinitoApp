@@ -12,6 +12,7 @@
             <input class="form-control" type="text" value="{{$proveedor->nombre}}" name="nombre">
             @error('nombre')
                 <code>{{$message}}</code>
+
             @enderror
         </div>
 
