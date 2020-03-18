@@ -10,10 +10,6 @@
             <input class="form-control" type="text" name="equipo">
         </div>
         <div class="form-group">
-            <label for="">Contacto</label>
-            <input class="form-control" type="text" name="contacto" >
-        </div>
-        <div class="form-group">
             <label for="">Modelo</label>
             <input class="form-control" type="text" name="modelo">
         </div>

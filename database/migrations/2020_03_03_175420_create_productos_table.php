@@ -15,11 +15,11 @@ class CreateProductosTable extends Migration
     {
         Schema::create('productos', function (Blueprint $table) {
             $table->id();
-            $table->string('codigo', 50);
+            $table->string('codigo', 50)->unique();
             $table->string('modelo', 50);
             $table->string('nombre', 50);
             $table->integer('existencia');
-            $table->string('foto');
+            $table->string('foto')->nullable();
             $table->unsignedBigInteger('id_tipo');
             $table->foreign('id_tipo')->references('id')->on('tipos');
             $table->unsignedBigInteger('id_proveedor');

@@ -1,9 +1,15 @@
-@if ($error->any())
-    <div class="card mb-4 py-3 border-bottom-danger">
-        <div class="card-body">
-            @foreach ($errors->all() as $error)
-                {{$error}}
-            @endforeach
+@if ($errors->get('nombre'))
+    
+    <!-- Basic Card Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Recomendación</h6>
         </div>
-    </div>    
+        <div class="card-body">
+            <p class="m-0 font-weight-bold text-primary">Estos son uno de los nombres que ya estan registrados</p>
+            @foreach ($sugerencias as $sugerencia)
+                <p>{{$sugerencia->nombre}}</p>
+            @endforeach 
+        </div>
+    </div>  
 @endif

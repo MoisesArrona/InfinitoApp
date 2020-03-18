@@ -20,7 +20,6 @@
         </div>
         <div class="card-body">
             <h5 class="card-title">Informaciòn</h5>
-                <p class="card-text">{{$equipo->contacto}}</p>
                 <p class="card-text">{{$equipo->modelo}}</p>
                 <p class="card-text">{{$equipo->nombre}}</p>
                 <p class="card-text">{{$equipo->so}}</p>

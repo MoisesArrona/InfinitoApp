@@ -14,7 +14,8 @@ class EmpresaController extends Controller
      */
     public function index()
     {
-        //
+        $empresas = Empresa::all();
+        return view('empresa.index', compact('empresas'));
     }
 
     /**
@@ -24,7 +25,7 @@ class EmpresaController extends Controller
      */
     public function create()
     {
-        //
+        return view('empresa.crear');
     }
 
     /**
@@ -35,7 +36,8 @@ class EmpresaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $empresa = new Empresa($request->input());
+        $empresa->save();
     }
 
     /**
@@ -44,9 +46,10 @@ class EmpresaController extends Controller
      * @param  \App\Empresa  $empresa
      * @return \Illuminate\Http\Response
      */
-    public function show(Empresa $empresa)
+    public function show($id)
     {
-        //
+        $empresa = Empresa::find($id);
+        return view('empresa.mostrar', compact('empresa'));
     }
 
     /**
@@ -57,7 +60,7 @@ class EmpresaController extends Controller
      */
     public function edit(Empresa $empresa)
     {
-        //
+        return view('empresa.editar', compact('empresa'));
     }
 
     /**
@@ -69,7 +72,9 @@ class EmpresaController extends Controller
      */
     public function update(Request $request, Empresa $empresa)
     {
-        //
+        $empresa->fill($request->all());
+        $empresa->save();
+        return redirect('empresa/'.$empresa->id)->with('estatus', 'Se edito correctamente');
     }
 
     /**

@@ -21,11 +21,6 @@
             <input class="form-control" type="text" value="{{$usuario->password}}" name="password" >
         </div>
 
-        <div class="form-group">
-            <label for="">Empresa</label>
-            <input class="form-control" type="text" value="{{$usuario->empresa}}" name="empresa" >
-        </div>
-
         <div class="custom-file">
             <input class="custom-file-input" type="file" name="foto">
             <label class="custom-file-label" for="customFile">Selecciona la foto</label>

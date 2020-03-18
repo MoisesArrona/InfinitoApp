@@ -22,7 +22,6 @@
         <div class="card-body">
             <p class="card-text">{{$usuario->email}}</p>
             <p class="card-text">{{$usuario->password}}</p>
-            <p class="card-text">{{$usuario->empresa}}</p>
             <p class="card-text">{{$usuario->descripcion}}</p>
             <p class="card-text">{{$usuario->id_rol}}</p>
         </div>
