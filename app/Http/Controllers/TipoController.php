@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Tipo;
 use Illuminate\Http\Request;
+use App\Http\Requests\TipoGuardarRequest;
 
 class TipoController extends Controller
 {
@@ -34,7 +35,7 @@ class TipoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TipoGuardarRequest $request)
     {
         $validacion = 
         $tipo = new Tipo($request->input());
@@ -72,7 +73,7 @@ class TipoController extends Controller
      * @param  \App\Tipo  $tipo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tipo $tipo)
+    public function update(TipoGuardarRequest $request, Tipo $tipo)
     {
         /*$tipo = request()->except('_method', '_token');
         Tipo::where('id','=',$id)->update($tipo);*/

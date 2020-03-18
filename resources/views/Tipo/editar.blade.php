@@ -8,11 +8,14 @@
         @csrf
         <div class="form-group">
             <label for="">Nombre</label>
-            <input class="form-control" type="text" value="{{$tipo->nombre}}" name="nombre" required>
+            <input class="form-control" type="text" value="{{$tipo->nombre}}" name="nombre">
+            @error('nombre')
+                <code>{{$message}}</code>
+            @enderror
         </div>
         <div class="form-group">
             <label for="">Descripcion</label>
-            <input class="form-control" type="text" value="{{$tipo->descripcion}}" name="descripcion" required>
+            <input class="form-control" type="text" value="{{$tipo->descripcion}}" name="descripcion">
         </div>
         <button class="btn btn-primary" type="submit">Guardar</button>
     </form>

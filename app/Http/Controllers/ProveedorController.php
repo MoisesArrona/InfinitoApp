@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Proveedor;
 use Illuminate\Http\Request;
+use App\Http\Requests\ProveedorGuardarRequest;
 
 class ProveedorController extends Controller
 {
@@ -34,7 +35,7 @@ class ProveedorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProveedorGuardarRequest $request)
     {
         /*$proveedor = request()->except('_token');
         Proveedor::create($proveedor);*/
@@ -61,7 +62,7 @@ class ProveedorController extends Controller
      * @param  \App\Proveedor  $proveedor
      * @return \Illuminate\Http\Response
      */
-    public function edit(Proveedor $proveedor)
+    public function edit(ProveedorGuardarRequest $proveedor)
     {
         return view('proveedor.editar', compact('proveedor'));
     }

@@ -12,10 +12,6 @@
             <input class="form-control" type="text" value="{{$equipo->equipo}}" name="equipo">
         </div>
         <div class="form-group">
-            <label for="">Contacto</label>
-            <input class="form-control" type="text" value="{{$equipo->contacto}}" name="contacto" >
-        </div>
-        <div class="form-group">
             <label for="">Modelo</label>
             <input class="form-control" type="text" value="{{$equipo->modelo}}" name="modelo">
         </div>

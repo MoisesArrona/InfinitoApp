@@ -23,7 +23,7 @@
 
         <div class="form-group">
             <label for="">Existencia</label>
-            <input class="form-control" type="text" value="{{$producto->existencia}}" name="existencia">
+            <input class="form-control" type="text" value="{{$producto->existencia}}" name="existencia" readonly>
         </div>
 
         <div class="custom-file">
