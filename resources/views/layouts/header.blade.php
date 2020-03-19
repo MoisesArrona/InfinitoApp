@@ -1,207 +1,213 @@
-<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-      
-  <!-- Sidebar Toggle (Topbar) -->
-  <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-    <i class="fa fa-bars"></i>
-  </button>
+<div class="main-header" data-background-color="blue">
+	<!-- Logo Header -->
+	<div class="logo-header">
+		
+		<a href="index.html" class="logo">
+			<img src="../assets/img/logoazzara.svg" alt="navbar brand" class="navbar-brand">
+		</a>
+		<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon">
+				<i class="fa fa-bars"></i>
+			</span>
+		</button>
+		<button class="topbar-toggler more"><i class="fa fa-ellipsis-v"></i></button>
+		<div class="navbar-minimize">
+			<button class="btn btn-minimize btn-rounded">
+				<i class="fa fa-bars"></i>
+			</button>
+		</div>
+	</div>
+	<!-- End Logo Header -->
 
-  <!-- Topbar Search 
-  <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-    <div class="input-group">
-      <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-      <div class="input-group-append">
-        <button class="btn btn-primary" type="button">
-          <i class="fas fa-search fa-sm"></i>
-        </button>
-      </div>
-    </div>
-  </form>-->
+	<!-- Navbar Header -->
+	<nav class="navbar navbar-header navbar-expand-lg">
+		
+		<div class="container-fluid">
+			<!-- Buscador -->
+			<div class="collapse" id="search-nav">
+				<form class="navbar-left navbar-form nav-search mr-md-3">
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<button type="submit" class="btn btn-search pr-1">
+								<i class="fa fa-search search-icon"></i>
+							</button>
+						</div>
+						<input type="text" placeholder="Buscar ..." class="form-control">
+					</div>
+				</form>
+			</div>
 
-  
-  <h1 class="h3 mb-0 text-gray-800">@yield('title')</h1>
-
-  <!-- Topbar Navbar -->
-  <ul class="navbar-nav ml-auto">
-
-    <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-    <li class="nav-item dropdown no-arrow d-sm-none">
-      <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <i class="fas fa-search fa-fw"></i>
-      </a>
-      <!-- Dropdown - Messages -->
-      <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
-        <form class="form-inline mr-auto w-100 navbar-search">
-          <div class="input-group">
-            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-            <div class="input-group-append">
-              <button class="btn btn-primary" type="button">
-                <i class="fas fa-search fa-sm"></i>
-              </button>
-            </div>
-          </div>
-        </form>
-      </div>
-    </li>
-
-    <!-- Nav Item - Alerts -->
-    <li class="nav-item dropdown no-arrow mx-1">
-      <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <i class="fas fa-bell fa-fw"></i>
-        <!-- Counter - Alerts -->
-        <span class="badge badge-danger badge-counter">3+</span>
-      </a>
-      <!-- Dropdown - Alerts -->
-      <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
-        <h6 class="dropdown-header">
-          Alerts Center
-        </h6>
-        <a class="dropdown-item d-flex align-items-center" href="#">
-          <div class="mr-3">
-            <div class="icon-circle bg-primary">
-              <i class="fas fa-file-alt text-white"></i>
-            </div>
-          </div>
-          <div>
-            <div class="small text-gray-500">December 12, 2019</div>
-            <span class="font-weight-bold">A new monthly report is ready to download!</span>
-          </div>
-        </a>
-        <a class="dropdown-item d-flex align-items-center" href="#">
-          <div class="mr-3">
-            <div class="icon-circle bg-success">
-              <i class="fas fa-donate text-white"></i>
-            </div>
-          </div>
-          <div>
-            <div class="small text-gray-500">December 7, 2019</div>
-            $290.29 has been deposited into your account!
-          </div>
-        </a>
-        <a class="dropdown-item d-flex align-items-center" href="#">
-          <div class="mr-3">
-            <div class="icon-circle bg-warning">
-              <i class="fas fa-exclamation-triangle text-white"></i>
-            </div>
-          </div>
-          <div>
-            <div class="small text-gray-500">December 2, 2019</div>
-            Spending Alert: We've noticed unusually high spending for your account.
-          </div>
-        </a>
-        <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
-      </div>
-    </li>
-
-    <!-- Nav Item - Messages -->
-    <li class="nav-item dropdown no-arrow mx-1">
-      <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <i class="fas fa-envelope fa-fw"></i>
-        <!-- Counter - Messages -->
-        <span class="badge badge-danger badge-counter">7</span>
-      </a>
-      <!-- Dropdown - Messages -->
-      <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
-        <h6 class="dropdown-header">
-          Message Center
-        </h6>
-        <a class="dropdown-item d-flex align-items-center" href="#">
-          <div class="dropdown-list-image mr-3">
-            <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
-            <div class="status-indicator bg-success"></div>
-          </div>
-          <div class="font-weight-bold">
-            <div class="text-truncate">Hi there! I am wondering if you can help me with a problem I've been having.</div>
-            <div class="small text-gray-500">Emily Fowler · 58m</div>
-          </div>
-        </a>
-        <a class="dropdown-item d-flex align-items-center" href="#">
-          <div class="dropdown-list-image mr-3">
-            <img class="rounded-circle" src="https://source.unsplash.com/AU4VPcFN4LE/60x60" alt="">
-            <div class="status-indicator"></div>
-          </div>
-          <div>
-            <div class="text-truncate">I have the photos that you ordered last month, how would you like them sent to you?</div>
-            <div class="small text-gray-500">Jae Chun · 1d</div>
-          </div>
-        </a>
-        <a class="dropdown-item d-flex align-items-center" href="#">
-          <div class="dropdown-list-image mr-3">
-            <img class="rounded-circle" src="https://source.unsplash.com/CS2uCrpNzJY/60x60" alt="">
-            <div class="status-indicator bg-warning"></div>
-          </div>
-          <div>
-            <div class="text-truncate">Last month's report looks great, I am very happy with the progress so far, keep up the good work!</div>
-            <div class="small text-gray-500">Morgan Alvarez · 2d</div>
-          </div>
-        </a>
-        <a class="dropdown-item d-flex align-items-center" href="#">
-          <div class="dropdown-list-image mr-3">
-            <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="">
-            <div class="status-indicator bg-success"></div>
-          </div>
-          <div>
-            <div class="text-truncate">Am I a good boy? The reason I ask is because someone told me that people say this to all dogs, even if they aren't good...</div>
-            <div class="small text-gray-500">Chicken the Dog · 2w</div>
-          </div>
-        </a>
-        <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
-      </div>
-    </li>
-
-    <div class="topbar-divider d-none d-sm-block"></div>
-
-    <!-- Nav Item - User Information -->
-    <li class="nav-item dropdown no-arrow">
-      <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ auth()->user()->email }}</span>
-        <img class="img-profile rounded-circle" src="/imagenes/usuarios/{{auth()->user()->foto}}">
-      </a>
-      <!-- Dropdown - User Information -->
-      <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-        <a class="dropdown-item" href="#">
-          <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-          Perfil
-        </a>
-        <a class="dropdown-item" href="#">
-          <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-          Ajustes
-        </a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-          <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-          Salir
-        </a>
-      </div>
-    </li>
-
-  </ul>
-
-</nav>
-
-  <!-- Salir Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">¿Quieres salir?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">Saldras del sistema completamente.</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-
-          <a class="btn btn-primary" href="{{ route('logout') }}"
-              onclick="event.preventDefault();
-                document.getElementById('logout-form').submit();">
-              {{ __('Salir') }}
-          </a>
-
-          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-            @csrf
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
+			<!-- Navegación de usuario -->
+			<ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
+				<li class="nav-item toggle-nav-search hidden-caret">
+					<a class="nav-link" data-toggle="collapse" href="#search-nav" role="button" aria-expanded="false" aria-controls="search-nav">
+						<i class="fa fa-search"></i>
+					</a>
+				</li>
+				<li class="nav-item dropdown hidden-caret">
+					<a class="nav-link dropdown-toggle" href="#" id="messageDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<i class="fa fa-envelope"></i>
+					</a>
+					<ul class="dropdown-menu messages-notif-box animated fadeIn" aria-labelledby="messageDropdown">
+						<li>
+							<div class="dropdown-title d-flex justify-content-between align-items-center">
+								Messages 									
+								<a href="#" class="small">Mark all as read</a>
+							</div>
+						</li>
+						<li>
+							<div class="message-notif-scroll scrollbar-outer">
+								<div class="notif-center">
+									<a href="#">
+										<div class="notif-img"> 
+											<img src="../assets/img/jm_denis.jpg" alt="Img Profile">
+										</div>
+										<div class="notif-content">
+											<span class="subject">Jimmy Denis</span>
+											<span class="block">
+												How are you ?
+											</span>
+											<span class="time">5 minutes ago</span> 
+										</div>
+									</a>
+									<a href="#">
+										<div class="notif-img"> 
+											<img src="../assets/img/chadengle.jpg" alt="Img Profile">
+										</div>
+										<div class="notif-content">
+											<span class="subject">Chad</span>
+											<span class="block">
+												Ok, Thanks !
+											</span>
+											<span class="time">12 minutes ago</span> 
+										</div>
+									</a>
+									<a href="#">
+										<div class="notif-img"> 
+											<img src="../assets/img/mlane.jpg" alt="Img Profile">
+										</div>
+										<div class="notif-content">
+											<span class="subject">Jhon Doe</span>
+											<span class="block">
+												Ready for the meeting today...
+											</span>
+											<span class="time">12 minutes ago</span> 
+										</div>
+									</a>
+									<a href="#">
+										<div class="notif-img"> 
+											<img src="../assets/img/talha.jpg" alt="Img Profile">
+										</div>
+										<div class="notif-content">
+											<span class="subject">Talha</span>
+											<span class="block">
+												Hi, Apa Kabar ?
+											</span>
+											<span class="time">17 minutes ago</span> 
+										</div>
+									</a>
+								</div>
+							</div>
+						</li>
+						<li>
+							<a class="see-all" href="javascript:void(0);">See all messages<i class="fa fa-angle-right"></i> </a>
+						</li>
+					</ul>
+				</li>
+				<li class="nav-item dropdown hidden-caret">
+					<a class="nav-link dropdown-toggle" href="#" id="notifDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<i class="fa fa-bell"></i>
+						<span class="notification">4</span>
+					</a>
+					<ul class="dropdown-menu notif-box animated fadeIn" aria-labelledby="notifDropdown">
+						<li>
+							<div class="dropdown-title">You have 4 new notification</div>
+						</li>
+						<li>
+							<div class="notif-scroll scrollbar-outer">
+								<div class="notif-center">
+									<a href="#">
+										<div class="notif-icon notif-primary"> <i class="fa fa-user-plus"></i> </div>
+										<div class="notif-content">
+											<span class="block">
+												New user registered
+											</span>
+											<span class="time">5 minutes ago</span> 
+										</div>
+									</a>
+									<a href="#">
+										<div class="notif-icon notif-success"> <i class="fa fa-comment"></i> </div>
+										<div class="notif-content">
+											<span class="block">
+												Rahmad commented on Admin
+											</span>
+											<span class="time">12 minutes ago</span> 
+										</div>
+									</a>
+									<a href="#">
+										<div class="notif-img"> 
+											<img src="../assets/img/profile2.jpg" alt="Img Profile">
+										</div>
+										<div class="notif-content">
+											<span class="block">
+												Reza send messages to you
+											</span>
+											<span class="time">12 minutes ago</span> 
+										</div>
+									</a>
+									<a href="#">
+										<div class="notif-icon notif-danger"> <i class="fa fa-heart"></i> </div>
+										<div class="notif-content">
+											<span class="block">
+												Farrah liked Admin
+											</span>
+											<span class="time">17 minutes ago</span> 
+										</div>
+									</a>
+								</div>
+							</div>
+						</li>
+						<li>
+							<a class="see-all" href="javascript:void(0);">See all notifications<i class="fa fa-angle-right"></i> </a>
+						</li>
+					</ul>
+				</li>
+				<li class="nav-item dropdown hidden-caret">
+					<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
+						<div class="avatar-sm">
+							<img src="/imagenes/usuarios/{{ auth()->user()->foto }}" alt="..." class="avatar-img rounded-circle">
+						</div>
+					</a>
+					<ul class="dropdown-menu dropdown-user animated fadeIn">
+						<li>
+							<div class="user-box">
+								<div class="avatar-lg"><img src="/imagenes/usuarios/{{ auth()->user()->foto }}" alt="image profile" class="avatar-img rounded"></div>
+								<div class="u-text">
+									<h4>{{ auth()->user()->name }}</h4>
+									<p class="text-muted">{{ auth()->user()->email }}</p>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="#">Mi perfil</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="#">Configuración</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                                {{ __('Salir') }}
+							</a>
+							<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+								@csrf
+							</form>
+						</li>
+					</ul>
+				</li>
+				
+			</ul>
+		</div>
+	</nav>
+	<!-- End Navbar -->
+</div>

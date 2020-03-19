@@ -1,86 +1,112 @@
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+<div class="sidebar">
+			
+    <div class="sidebar-background"></div>
+    <div class="sidebar-wrapper scrollbar-inner">
+        <div class="sidebar-content">
+            <!-- Información del usuario -->
+            <div class="user">
+                <div class="avatar-sm float-left mr-2">
+                    <img src="/imagenes/usuarios/{{ auth()->user()->foto }}" alt="..." class="avatar-img rounded-circle">
+                </div>
+                <div class="info">
+                    <a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
+                        <span>
+                            {{ auth()->user()->name }}
+                            <span class="user-level">{{ auth()->user()->id_rol }}</span>
+                            <span class="caret"></span>
+                        </span>
+                    </a>
+                    <div class="clearfix"></div>
 
-    <!-- Titulo de la aplicacion -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
-      <div class="sidebar-brand-icon rotate-n-15">
-        <i class="fas fa-laugh-wink"></i>
-      </div>
-      <div class="sidebar-brand-text mx-3">Infinito App <sup>vol-2</sup></div>
-    </a>
+                    <div class="collapse in" id="collapseExample">
+                        <ul class="nav">
+                            <li>
+                                <a href="#">
+                                    <span class="link-collapse">Mi perfil</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="link-collapse">Configuracion</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
-    <!-- Divicion -->
-    <hr class="sidebar-divider">
-
-    <!-- Titulo de seccion -->
-    <div class="sidebar-heading">
-        Principal
-    </div>
-
-    <!-- Nav Item - producto -->
-    <li class="nav-item">
-      <a class="nav-link" href="/producto">
-        <i class="fas fa-box"></i>
-        <span>Productos</span></a>
-    </li>
-
-    <!-- Nav Item - tarea -->
-    <li class="nav-item">
-        <a class="nav-link" href="/tarea">
-          <i class="fas fa-thumbtack"></i>
-          <span>Tareas</span></a>
-    </li>
-
-    <!-- Nav Item - reportes -->
-    <li class="nav-item">
-        <a class="nav-link" href="/reporte">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Reportes</span></a>
-    </li>
-
-    <!-- Nav Item - usuario -->
-    <li class="nav-item">
-        <a class="nav-link" href="/usuario">
-          <i class="fas fa-user"></i>
-          <span>Usuarios</span></a>
-    </li>
-
-    <!-- Nav Item - usuario -->
-    <li class="nav-item">
-      <a class="nav-link" href="/equipo">
-        <i class="fas fa-desktop"></i>
-        <span>Equipo</span></a>
-    </li>
-
-    <!-- Divicion -->
-    <hr class="sidebar-divider">
-
-    <!-- Titulo de seccion -->
-    <div class="sidebar-heading">
-        Extras
-    </div>
-
-    <!-- Nav Item - extras -->
-    <li class="nav-item">
-      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-        <i class="fas fa-cubes"></i>
-        <span>Extras</span>
-      </a>
-      <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-          <h6 class="collapse-header">De interes:</h6>
-          <a class="collapse-item" href="login.html"><i class="fas fa-headset"></i> Soporte</a>
-          <a class="collapse-item" href="register.html"><i class="fas fa-newspaper"></i> Novedades</a>
-          <div class="collapse-divider"></div>
+            <!-- Menu lateral -->
+            <ul class="nav">
+                <li class="nav-item active">
+                    <a href="index.html">
+                        <i class="fas fa-home"></i>
+                        <p>Dashboard</p>
+                        <span class="badge badge-count">5</span>
+                    </a>
+                </li>
+                <li class="nav-section">
+                    <span class="sidebar-mini-icon">
+                        <i class="fa fa-ellipsis-h"></i>
+                    </span>
+                    <h4 class="text-section">Principal</h4>
+                </li>
+                <li class="nav-item">
+                    <a href="/producto/">
+                        <i class="fas fa-box"></i>
+                        <p>Productos</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/usuario/">
+                        <i class="fas fa-user-alt"></i>
+                        <p>Usuarios</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/reporte/">
+                        <i class="fas fa-book-open"></i>
+                        <p>Reportes</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/tarea/">
+                        <i class="fas fa-clipboard-list"></i>
+                        <p>Tarea</p>
+                    </a>
+                </li>
+                <li class="nav-section">
+                    <span class="sidebar-mini-icon">
+                        <i class="fa fa-ellipsis-h"></i>
+                    </span>
+                    <h4 class="text-section">Otros</h4>
+                </li>
+                <li class="nav-item">
+                    <a data-toggle="collapse" href="#base">
+                        <i class="fas fa-layer-group"></i>
+                        <p>Base</p>
+                        <span class="caret"></span>
+                    </a>
+                    <div class="collapse" id="base">
+                        <ul class="nav nav-collapse">
+                            <li>
+                                <a href="components/avatars.html">
+                                    <span class="sub-item">Ayuda</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="components/buttons.html">
+                                    <span class="sub-item">Novedades</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="components/buttons.html">
+                                    <span class="sub-item">Contacto</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
         </div>
-      </div>
-    </li>
-    
-    <!-- Divider -->
-    <hr class="sidebar-divider d-none d-md-block">
-
-    <!-- Sidebar Toggler (Sidebar) -->
-    <div class="text-center d-none d-md-inline">
-      <button class="rounded-circle border-0" id="sidebarToggle"></button>
     </div>
-
-</ul>
+</div>

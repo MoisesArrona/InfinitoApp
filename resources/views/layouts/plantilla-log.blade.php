@@ -4,54 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>InfinitoApp</title>
     <!-- *** ESTILOS DE PLANTILLA *** -->
-    <!-- Custom fonts for this template-->
-    <link href="/plantilla/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-    <!-- Custom styles for this template-->
-    <link href="/plantilla/css/sb-admin-2.min.css" rel="stylesheet">
-    <title>Login</title>
+    <!-- Fonts and icons -->
+	<script src="/assets/js/plugin/webfont/webfont.min.js"></script>
+	<script>
+		WebFont.load({
+			google: {"families":["Open+Sans:300,400,600,700"]},
+			custom: {"families":["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands"], urls: ['../assets/css/fonts.css']},
+			active: function() {
+				sessionStorage.fonts = true;
+			}
+		});
+	</script>
+	<!-- CSS Files -->
+	<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/assets/css/azzara.min.css">
 </head>
-<body class="bg-gradient-primary">
+<body>
+    <!-- Plantilla -->
+    <div id="wrapper">
 
-    <div class="container">
-        <!-- Outer Row -->
-        <div class="row justify-content-center">
-            <div class="col-xl-10 col-lg-12 col-md-9">
-                <div class="card o-hidden border-0 shadow-lg my-5">
-                    <div class="card-body p-0">
-                        <!-- Nested Row within Card Body -->
-                        <div class="row">
-                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
-                            <div class="col-lg-6">
-                                <div class="p-5">
-                                    <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">¡Bienvenido!</h1>
-                                    </div>
-                                    
-                                    <!--fomulario de loggeo-->
-                                    @yield('contenido')
-                                    
-                                    <hr>
-                                    <div class="text-center">
-                                        <a class="small" href="forgot-password.html">¿Olvidaste la contraseña?</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
+
     </div>
 
     <!-- *** SCRIP DE PLANTILLA *** -->
-    <!-- Bootstrap core JavaScript-->
-    <script src="/plantilla/vendor/jquery/jquery.min.js"></script>
-    <script src="/plantilla/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- Core plugin JavaScript-->
-    <script src="/plantilla/vendor/jquery-easing/jquery.easing.min.js"></script>
-    <!-- Custom scripts for all pages-->
-    <script src="/plantilla/js/sb-admin-2.min.js"></script>
+	<!--   Core JS Files   -->
+	<script src="/assets/js/core/jquery.3.2.1.min.js"></script>
+	<script src="/assets/js/core/popper.min.js"></script>
+	<script src="/assets/js/core/bootstrap.min.js"></script>
+	<!-- jQuery UI -->
+	<script src="/assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+	<script src="/assets/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
+	<!-- jQuery Scrollbar -->
+	<script src="/assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+	<!-- Moment JS -->
+	<script src="/assets/js/plugin/moment/moment.min.js"></script>
+	<!-- Chart JS -->
+	<script src="/assets/js/plugin/chart.js/chart.min.js"></script>
+	<!-- jQuery Sparkline -->
+	<script src="/assets/js/plugin/jquery.sparkline/jquery.sparkline.min.js"></script>
+	<!-- Chart Circle -->
+	<script src="/assets/js/plugin/chart-circle/circles.min.js"></script>
+	<!-- Datatables -->
+	<script src="/assets/js/plugin/datatables/datatables.min.js"></script>
+	<!-- Bootstrap Notify -->
+	<script src="/assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
+	<!-- Bootstrap Toggle -->
+	<script src="/assets/js/plugin/bootstrap-toggle/bootstrap-toggle.min.js"></script>
+	<!-- jQuery Vector Maps -->
+	<script src="/assets/js/plugin/jqvmap/jquery.vmap.min.js"></script>
+	<script src="/assets/js/plugin/jqvmap/maps/jquery.vmap.world.js"></script>
+	<!-- Google Maps Plugin -->
+	<script src="/assets/js/plugin/gmaps/gmaps.js"></script>
+	<!-- Sweet Alert -->
+	<script src="/assets/js/plugin/sweetalert/sweetalert.min.js"></script>
+	<!-- Azzara JS -->
+	<script src="/assets/js/ready.min.js"></script>
 </body>
 </html>

@@ -5,67 +5,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>InfinitoApp</title>
-
     <!-- *** ESTILOS DE PLANTILLA *** -->
-    <!-- Custom fonts for this template-->
-    <link href="/plantilla/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-    <!-- Custom styles for this template-->
-    <link href="/plantilla/css/sb-admin-2.min.css" rel="stylesheet">
-    <!-- Custom styles for this page -->
-  <link href="/plantilla/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <!-- Fonts and icons -->
+	<script src="/assets/js/plugin/webfont/webfont.min.js"></script>
+	<script>
+		WebFont.load({
+			google: {"families":["Open+Sans:300,400,600,700"]},
+			custom: {"families":["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands"], urls: ['../assets/css/fonts.css']},
+			active: function() {
+				sessionStorage.fonts = true;
+			}
+		});
+	</script>
+	<!-- CSS Files -->
+	<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/assets/css/azzara.min.css">
 </head>
 <body>
-
     <!-- Plantilla -->
     <div id="wrapper">
 
-        <!-- Menu lateral -->
+        <!-- Header -->
+        @include('layouts.header')
+
+        <!-- Menu (Slider) -->
         @include('layouts.menu')
 
         <!-- Contenido de layouts -->
-        <div id="content-wrapper" class="d-flex flex-column">
-
-            <!-- Contenido principal -->
-            <div id="content">
-
-                <!-- Header -->
-                @include('layouts.header')
-
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
-
-                    <!-- Contenido del sistema -->
-                    @yield('contenido')
-
-                </div>
-
-            </div>
-
-            <!-- Footer -->
-            @include('layouts.footer')
-
+        <div class="main-panel">
+			<div class="content">
+				<div class="page-inner">
+					<div class="page-header">
+						<h4 class="page-title">@yield('title')</h4>
+						<div class="btn-group btn-group-page-header ml-auto">
+							<button type="button" class="btn btn-light btn-round btn-page-header-dropdown dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<i class="fa fa-ellipsis-h"></i>
+							</button>
+							<div class="dropdown-menu">
+								<div class="arrow"></div>
+								<a class="dropdown-item" href="#">Action</a>
+								<a class="dropdown-item" href="#">Another action</a>
+								<a class="dropdown-item" href="#">Something else here</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="#">Separated link</a>
+							</div>
+						</div>
+					</div>
+				
+					@yield('contenido')
+				</div>
+			</div>
+			
         </div>
+        
+        @include('layouts.footer')
 
     </div>
 
     <!-- *** SCRIP DE PLANTILLA *** -->
-    <!-- Bootstrap core JavaScript-->
-    <script src="/plantilla/vendor/jquery/jquery.min.js"></script>
-    <script src="/plantilla/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- Core plugin JavaScript-->
-    <script src="/plantilla/vendor/jquery-easing/jquery.easing.min.js"></script>
-    <!-- Custom scripts for all pages-->
-    <script src="/plantilla/js/sb-admin-2.min.js"></script>
-    <!-- Page level plugins -->
-    <script src="/plantilla/vendor/chart.js/Chart.min.js"></script>
-    <!-- Page level custom scripts -->
-    <script src="/plantilla/js/demo/chart-area-demo.js"></script>
-    <script src="/plantilla/js/demo/chart-pie-demo.js"></script>
-    <!-- Page level plugins -->
-    <script src="/plantilla/vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="/plantilla/vendor/datatables/dataTables.bootstrap4.min.js"></script>
-    <!-- Page level custom scripts -->
-    <script src="/plantilla/js/demo/datatables-demo.js"></script>
+	<!--   Core JS Files   -->
+	<script src="/assets/js/core/jquery.3.2.1.min.js"></script>
+	<script src="/assets/js/core/popper.min.js"></script>
+	<script src="/assets/js/core/bootstrap.min.js"></script>
+	<!-- jQuery UI -->
+	<script src="/assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+	<script src="/assets/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
+	<!-- jQuery Scrollbar -->
+	<script src="/assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+	<!-- Moment JS -->
+	<script src="/assets/js/plugin/moment/moment.min.js"></script>
+	<!-- Chart JS -->
+	<script src="/assets/js/plugin/chart.js/chart.min.js"></script>
+	<!-- jQuery Sparkline -->
+	<script src="/assets/js/plugin/jquery.sparkline/jquery.sparkline.min.js"></script>
+	<!-- Chart Circle -->
+	<script src="/assets/js/plugin/chart-circle/circles.min.js"></script>
+	<!-- Datatables -->
+	<script src="/assets/js/plugin/datatables/datatables.min.js"></script>
+	<!-- Bootstrap Notify -->
+	<script src="/assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
+	<!-- Bootstrap Toggle -->
+	<script src="/assets/js/plugin/bootstrap-toggle/bootstrap-toggle.min.js"></script>
+	<!-- jQuery Vector Maps -->
+	<script src="/assets/js/plugin/jqvmap/jquery.vmap.min.js"></script>
+	<script src="/assets/js/plugin/jqvmap/maps/jquery.vmap.world.js"></script>
+	<!-- Google Maps Plugin -->
+	<script src="/assets/js/plugin/gmaps/gmaps.js"></script>
+	<!-- Sweet Alert -->
+	<script src="/assets/js/plugin/sweetalert/sweetalert.min.js"></script>
+	<!-- Azzara JS -->
+	<script src="/assets/js/ready.min.js"></script>
 </body>
 </html>
