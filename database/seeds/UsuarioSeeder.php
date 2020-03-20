@@ -14,10 +14,24 @@ class UsuarioSeeder extends Seeder
     public function run()
     {
         $usuario = new User();
-        $usuario->name = "Moises";
+        $usuario->name = "Moises Arrona";
         $usuario->email = "arronamoisesar@outlook.com";
         $usuario->password = Hash::make('12345678');
         $usuario->id_rol = 1;
+        $usuario->save();
+
+        $usuario = new User();
+        $usuario->name = "Empleado Hernandez";
+        $usuario->email = "arronamoisesarE@outlook.com";
+        $usuario->password = Hash::make('12345678');
+        $usuario->id_rol = 2;
+        $usuario->save();
+
+        $usuario = new User();
+        $usuario->name = "Cliente Villanueva";
+        $usuario->email = "arronamoisesarC@outlook.com";
+        $usuario->password = Hash::make('12345678');
+        $usuario->id_rol = 3;
         $usuario->save();
     }
 }

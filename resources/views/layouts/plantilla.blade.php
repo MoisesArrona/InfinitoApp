@@ -24,7 +24,7 @@
 	<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/assets/css/azzara.min.css">
 </head>
-<body>
+<body data-background-color="bg3">
     <!-- Plantilla -->
     <div id="wrapper">
 
@@ -54,15 +54,12 @@
 							</div>
 						</div>
 					</div>
-				
+					<!--Contenido por modulo-->
 					@yield('contenido')
 				</div>
 			</div>
-			
-        </div>
-        
-        @include('layouts.footer')
 
+        </div>
     </div>
 
     <!-- *** SCRIP DE PLANTILLA *** -->

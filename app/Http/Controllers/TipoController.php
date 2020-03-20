@@ -40,7 +40,7 @@ class TipoController extends Controller
     {
         $tipo = new Tipo($request->input());
         $tipo->save();
-        return redirect('tipo/')->with('estatus', 'Se guardo correctamente');
+        return redirect('tipo/')->with('estatus', 'Se guardo correctamente: '.$tipo->nombre);
     }
 
     /**
@@ -80,7 +80,7 @@ class TipoController extends Controller
         Tipo::where('id','=',$id)->update($tipo);*/
         $tipo->fill($request->all());
         $tipo->save();
-        return redirect('tipo/'.$tipo->id)->with('estatus', 'Se edito correctamente');
+        return redirect('tipo/'.$tipo->id)->with('estatus', 'Se edito correctamente: '.$tipo->nombre);
     }
 
     /**

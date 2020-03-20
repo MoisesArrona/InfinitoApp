@@ -57,9 +57,9 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/usuario/">
-                        <i class="fas fa-user-alt"></i>
-                        <p>Usuarios</p>
+                    <a href="/tarea/">
+                        <i class="fas fa-clipboard-list"></i>
+                        <p>Tarea</p>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -69,9 +69,15 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/tarea/">
-                        <i class="fas fa-clipboard-list"></i>
-                        <p>Tarea</p>
+                    <a href="/equipo/">
+                        <i class="fas fa-laptop"></i>
+                        <p>Equipo</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/usuario/">
+                        <i class="fas fa-user-alt"></i>
+                        <p>Usuarios</p>
                     </a>
                 </li>
                 <li class="nav-section">

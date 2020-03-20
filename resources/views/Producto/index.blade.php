@@ -10,7 +10,7 @@
     <div class="row">
         <!-- Acceso a tipo de producto -->
         <div class="col-md-6">
-            <a href="/tipo/" class="card card-stats card-round dropdown-item">
+            <a href="/tipo/" class="card card-stats card-round btn">
                 <div class="card-body ">
                     <div class="row">
                         <div class="col-5">
@@ -21,13 +21,14 @@
                         <div class="col col-stats">
                             <div class="numbers">
                                 <p class="card-category">Tipo de productos</p>
-                                <h4 class="card-title">150GB</h4>
+                                <h4 class="card-title">Administra</h4>
                             </div>
                         </div>
                     </div>
                 </div>
             </a>
         </div>
+        
         <div class="col-md-6">
             <a href="/proveedor/" class="card card-stats card-round dropdown-item">
                 <div class="card-body ">
@@ -40,7 +41,7 @@
                         <div class="col col-stats">
                             <div class="numbers">
                                 <p class="card-category">Proveedores</p>
-                                <h4 class="card-title">150GB</h4>
+                                <h4 class="card-title">Administra</h4>
                             </div>
                         </div>
                     </div>
@@ -55,11 +56,18 @@
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title text-center">Listado de tipo de material</h4>
-                    <a href="producto/create" class="btn btn-primary float-right">
+                    <a href="producto/create" class="btn btn-primary ">
                         <span class="btn-label">
                             <i class="flaticon-add"></i>
                         </span>
                         Agregar
+                    </a>
+
+                    <a href="producto/" class="btn btn-primary ">
+                        <span class="btn-label">
+                            <i class="flaticon-cart-1"></i>
+                        </span>
+                        Salida
                     </a>
                 </div>
                 

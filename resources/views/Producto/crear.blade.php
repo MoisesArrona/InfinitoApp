@@ -65,10 +65,10 @@
                                         <option value="{{$proveedor->id}}"> {{$proveedor->nombre}}</option>
                                     @endforeach
                                 </select>
+                                @error('id_proveedor')
+                                    <code>{{$message}}</code>
+                                @enderror
                             </div>
-                            @error('id_proveedor')
-                                <code>{{$message}}</code>
-                            @enderror
                     
                             <div class="form-group col-md-6">
                                 <label for="">Tipo</label>
@@ -78,10 +78,10 @@
                                         <option value="{{$tipo->id}}"> {{$tipo->nombre}}</option>
                                     @endforeach
                                 </select>
+                                @error('id_tipo')
+                                    <code>{{$message}}</code>
+                                @enderror
                             </div>
-                            @error('id_tipo')
-                                <code>{{$message}}</code>
-                            @enderror
                         </div>
                         
                         <button class="btn btn-primary" type="submit">Guardar</button>

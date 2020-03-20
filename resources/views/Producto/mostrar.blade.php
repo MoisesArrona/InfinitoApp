@@ -21,7 +21,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">{{$tipo->nombre}}</h4>
+                    <h4 class="card-title">{{$producto->nombre}}</h4>
                 </div>
                 <div class="card-body">
                     <div class="row">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Tarea;
 use App\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\TareaRequest;
 
 class TareaController extends Controller
 {
@@ -15,8 +16,9 @@ class TareaController extends Controller
      */
     public function index()
     {
-        $tareas = Tarea::all();
-        return view('tarea.index', compact('tareas'));
+        $tareas = Tarea::where('estatus','!=','finalizado')->get();
+        $tareasT = Tarea::where('estatus','=','finalizado')->get();
+        return view('tarea.index', compact(['tareas', 'tareasT']));
     }
 
     /**
@@ -26,7 +28,7 @@ class TareaController extends Controller
      */
     public function create()
     {
-        $usuarios = User::all();
+        $usuarios = User::where('id_rol','=',2)->get();
         return view('tarea.crear', compact('usuarios'));
     }
 
@@ -36,13 +38,13 @@ class TareaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TareaRequest $request)
     {
         /*$tarea = request()->except('_token');
         Tarea::insert($tarea);*/
         $tarea = new Tarea($request->input());
         $tarea->save();
-        return redirect('tarea/')->with('estatus', 'Se guardo correctamente');
+        return redirect('tarea/')->with('estatus', 'Se a iniciado la tarea: '.$tarea->nombre);
     }
 
     /**
@@ -76,13 +78,13 @@ class TareaController extends Controller
      * @param  \App\Tarea  $tarea
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tarea $tarea)
+    public function update(TareaRequest $request, Tarea $tarea)
     {
         /*$tarea = request()->except('_method', '_token');
         Tarea::where('id','=',$id)->update($tarea);*/
         $tarea->fill($request->all());
         $tarea->save();
-        return redirect('tarea/'.$tarea->id)->with('estatus', 'Se edito correctamente');
+        return redirect('tarea/'.$tarea->id)->with('estatus', 'Se edito correctamente:'.$tarea->nombre);
     }
 
     /**

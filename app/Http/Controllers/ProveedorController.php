@@ -42,7 +42,7 @@ class ProveedorController extends Controller
         Proveedor::create($proveedor);*/
         $proveedor = new Proveedor($request->input());
         $proveedor->save();
-        return redirect('proveedor/')->with('estatus', 'Se guardo correctamente');
+        return redirect('proveedor/')->with('estatus', 'Se guardo correctamente: '.$proveedor->nombre);
     }
 
     /**
@@ -82,7 +82,7 @@ class ProveedorController extends Controller
         Proveedor::where('id','=',$id)->update($proveedor);*/
         $proveedor->fill($request->all());
         $proveedor->save();
-        return redirect('proveedor/'.$proveedor->id)->with('estatus', 'Se edito correctamente');
+        return redirect('proveedor/'.$proveedor->id)->with('estatus', 'Se edito correctamente: '.$proveedor->nombre);
     }
 
     /**

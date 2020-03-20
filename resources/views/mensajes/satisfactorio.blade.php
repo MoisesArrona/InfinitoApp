@@ -20,7 +20,7 @@
 			offset: 20,
 			spacing: 10,
 			z_index: 1031,
-			delay: 2000,
+			delay: 6000,
 			timer: 1000,
 			mouse_over: null,
 			animate: {

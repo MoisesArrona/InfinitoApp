@@ -47,7 +47,7 @@ class ProductoController extends Controller
         if($request->hasFile('foto')){
             //asiganmos la foto a la variable y cambiamos el nombre y movemos el archivo
             $file = $request->file('foto');
-            $name = $request->codigo.$file->getClientOriginalName();
+            $name = $request->nombre.'_'.$request->codigo.'_'.now().'.png';
             $file->move(public_path().'/imagenes/productos/',$name);
             $producto->foto = $name;
         }
@@ -55,7 +55,7 @@ class ProductoController extends Controller
         $producto['foto']=$name;
         Producto::create($producto);*/
         $producto->save();
-        return redirect('producto/')->with('estatus', 'Se guardo correctamente');
+        return redirect('producto/')->with('estatus', 'Se guardo correctamente: '.$producto->nombre.' Con codigo: '.$producto->codigo);
     }
 
     /**
@@ -98,12 +98,12 @@ class ProductoController extends Controller
         if($request->hasFile('foto')){
             //asiganmos la foto a la variable y cambiamos el nombre y movemos el archivo
             $file = $request->file('foto');
-            $name = $request->nombre.$request->codigo.$file->getClientOriginalName();
+            $name = $request->nombre.'_'.$request->codigo.'_'.now().'.png';
             $producto['foto']=$name;
             $file->move(public_path().'/imagenes/productos/',$name);
         }
         $producto->save();
-        return redirect('producto/'.$producto->id)->with('estatus', 'Se edito correctamente');
+        return redirect('producto/'.$producto->id)->with('estatus', 'Se edito correctamente: '.$producto->nombre.' Con codigo: '.$producto->codigo);
     }
 
     /**
