@@ -1,15 +1,20 @@
-@if ($errors->get('nombre'))
-    
-    <!-- Basic Card Example -->
+@if ($errors->get('nombre') || $errors->get('codigo')) 
     <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Recomendación</h6>
+        <div class="card-header">
+            <div class="card-title">Recomendaciones</div>
+            <p>Te mostramos algunos de los nombres que ya estan registrados</p>
         </div>
-        <div class="card-body">
-            <p class="m-0 font-weight-bold text-primary">Estos son uno de los nombres que ya estan registrados</p>
+        <div class="card-body pb-0">
             @foreach ($sugerencias as $sugerencia)
-                <p>{{$sugerencia->nombre}}</p>
+                <div class="d-flex">
+                    <div class="flex-1 pt-1 ml-2">
+                        <h3 class="fw-bold mb-1 "><p>Nombre: {{$sugerencia->nombre}}</p></h5>
+                        <small class="text-muted">Fecha: {{$sugerencia->created_at}}</small>
+                    </div>
+                </div>
+                <div class="separator-dashed"></div>
             @endforeach 
         </div>
-    </div>  
+    </div>
 @endif
+

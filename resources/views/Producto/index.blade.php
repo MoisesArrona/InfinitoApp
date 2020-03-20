@@ -3,91 +3,116 @@
 @section('title', 'Productos')
 
 @section('contenido')
+    <!-- Mensaje -->
     @include('mensajes.satisfactorio')
 
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <a href="producto/create" class="btn btn-primary btn-icon-split">
-            <span class="icon text-white-50">
-            <i class="fas fa-plus"></i>
-            </span>
-            <span class="text">Agregar</span>
-        </a>
-    </div>
 
     <div class="row">
         <!-- Acceso a tipo de producto -->
-        <a href="/tipo" class="col-md-6 mb-4 nav-link">
-            <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Tipo de producto</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">Administrar tipo de producto</div>
+        <div class="col-md-6">
+            <a href="/tipo/" class="card card-stats card-round dropdown-item">
+                <div class="card-body ">
+                    <div class="row">
+                        <div class="col-5">
+                            <div class="icon-big text-center">
+                                <i class="flaticon-price-tag text-warning"></i>
+                            </div>
                         </div>
-                        <div class="col-auto">
-                            <i class="fas fa-tags fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </a>
-
-        <a href="/proveedor" class="col-md-6 mb-4 nav-link">
-            <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Proveedores</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">Administra proveedores</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-truck fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </a>
-    </div>
-
-    <div class="row">
-        @foreach ($productos as $producto)
-            <div class="col-xl-3 col-md-6 mb-4 ">
-                <div class="card shadow mb-4">
-                    <!-- Card Header - Dropdown -->
-                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <img src="/imagenes/productos/{{$producto->foto}}" class="card-img-top" style="width: 200px;">
-                        <div class="dropdown no-arrow">
-                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                                <div class="dropdown-header">Opciones:</div>
-                                <a class="dropdown-item" href="producto/{{$producto->id}}/edit">Editar</a>
-                                <a class="dropdown-item" href="producto/{{$producto->id}}/">Ver</a>
+                        <div class="col col-stats">
+                            <div class="numbers">
+                                <p class="card-category">Tipo de productos</p>
+                                <h4 class="card-title">150GB</h4>
                             </div>
                         </div>
                     </div>
-                    <!-- Card Body -->
-                    <div class="card-body">
-                        <h6 class="m-0 font-weight-bold text-primary">{{$producto->modelo}}</h6>
-                        <p class="card-text">{{$producto->nombre}}</p>
-                        <p class="card-text">{{$producto->existencia}}</p>
-                    </div>
                 </div>
-            </div>
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header">
-                        <div class="d-flex align-items-center">
-                            <h4 class="card-title">Add Row</h4>
-                            <button class="btn btn-primary btn-round ml-auto" data-toggle="modal" data-target="#addRowModal">
-                                <i class="fa fa-plus"></i>
-                                Add Row
-                            </button>
+            </a>
+        </div>
+        <div class="col-md-6">
+            <a href="/proveedor/" class="card card-stats card-round dropdown-item">
+                <div class="card-body ">
+                    <div class="row">
+                        <div class="col-5">
+                            <div class="icon-big text-center">
+                                <i class="flaticon-delivery-truck text-warning"></i>
+                            </div>
+                        </div>
+                        <div class="col col-stats">
+                            <div class="numbers">
+                                <p class="card-category">Proveedores</p>
+                                <h4 class="card-title">150GB</h4>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        @endforeach
+            </a>
+        </div>
     </div>
+
+    <div class="row">
+        <!-- Tabla -->
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title text-center">Listado de tipo de material</h4>
+                    <a href="producto/create" class="btn btn-primary float-right">
+                        <span class="btn-label">
+                            <i class="flaticon-add"></i>
+                        </span>
+                        Agregar
+                    </a>
+                </div>
+                
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table id="basic-datatables" class="display table table-striped table-hover" >
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Modelo</th>
+                                    <th>Existencia</th>
+                                    <th>Foto</th>
+                                    <th style="width: 10%">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Modelo</th>
+                                    <th>Existencia</th>
+                                    <th>Foto</th>
+                                    <th style="width: 10%">Acciones</th>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                @foreach ($productos as $producto)
+                                    <tr>
+                                        <td>{{$producto->nombre}}</td>
+                                        <td>{{$producto->modelo}}</td>
+                                        <td>{{$producto->existencia}}</td>
+                                        <td>
+                                            <div class="avatar avatar-sm">
+                                                <img src="/imagenes/productos/{{$producto->foto}}" alt="..." class="avatar-img rounded-circle">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-button-action">
+                                                <a href="producto/{{$producto->id}}/" class=" btn btn-link btn-primary">
+                                                    <i class="fas fa-info-circle"></i>
+                                                </a>
+                                                <a href="producto/{{$producto->id}}/edit" class="btn btn-link btn-warning">
+                                                    <i class="fas fa-pencil-alt"></i>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 @endsection

@@ -6,7 +6,7 @@ use App\Producto;
 use App\Tipo;
 use App\Proveedor;
 use Illuminate\Http\Request;
-use App\Http\Requests\ProductoGuardarRequest;
+use App\Http\Requests\ProductoRequest;
 
 class ProductoController extends Controller
 {
@@ -28,9 +28,10 @@ class ProductoController extends Controller
      */
     public function create()
     {
+        $sugerencias = Producto::all();
         $tipos = Tipo::all();
         $proveedores = Proveedor::all();
-        return view('producto.crear', compact(['tipos', 'proveedores']));
+        return view('producto.crear', compact(['tipos', 'proveedores', 'sugerencias']));
     }
 
     /**
@@ -39,7 +40,7 @@ class ProductoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ProductoGuardarRequest $request)
+    public function store(ProductoRequest $request)
     {
         $producto = new Producto($request->input());
         //Condicionamos para saber si existe una foto en la peticion
@@ -77,9 +78,10 @@ class ProductoController extends Controller
      */
     public function edit(Producto $producto)
     {
+        $sugerencias = Producto::all();
         $tipos = Tipo::all();
         $proveedores = Proveedor::all();
-        return view('producto/editar', compact(['producto', 'tipos', 'proveedores']));
+        return view('producto/editar', compact(['producto', 'tipos', 'proveedores', 'sugerencias']));
     }
 
     /**
@@ -89,7 +91,7 @@ class ProductoController extends Controller
      * @param  \App\Producto  $producto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Producto $producto)
+    public function update(ProductoRequest $request, Producto $producto)
     {
         //$producto = request()->except('_method', '_token', 'foto');
         $producto->fill($request->all());

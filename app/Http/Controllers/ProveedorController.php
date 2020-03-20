@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Proveedor;
 use Illuminate\Http\Request;
-use App\Http\Requests\ProveedorGuardarRequest;
+use App\Http\Requests\ProveedorRequest;
 
 class ProveedorController extends Controller
 {
@@ -36,7 +36,7 @@ class ProveedorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ProveedorGuardarRequest $request)
+    public function store(ProveedorRequest $request)
     {
         /*$proveedor = request()->except('_token');
         Proveedor::create($proveedor);*/
@@ -63,9 +63,10 @@ class ProveedorController extends Controller
      * @param  \App\Proveedor  $proveedor
      * @return \Illuminate\Http\Response
      */
-    public function edit(ProveedorGuardarRequest $proveedor)
+    public function edit(Proveedor $proveedor)
     {
-        return view('proveedor.editar', compact('proveedor'));
+        $sugerencias = Proveedor::all();
+        return view('proveedor.editar', compact(['proveedor', 'sugerencias']));
     }
 
     /**
@@ -75,7 +76,7 @@ class ProveedorController extends Controller
      * @param  \App\Proveedor  $proveedor
      * @return \Illuminate\Http\Response
      */
-    public function update(ProveedorGuardarRequest $request, Proveedor $proveedor)
+    public function update(ProveedorRequest $request, Proveedor $proveedor)
     {
         /*$proveedor = request()->except('_method', '_token');
         Proveedor::where('id','=',$id)->update($proveedor);*/

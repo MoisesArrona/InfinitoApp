@@ -1,47 +1,44 @@
-@extends('layouts.plantilla-log')
+@extends('layouts.login')
 
 @section('contenido')
     
-    <form class="user" method="POST" action="{{ route('login') }}">
-        @csrf
-
-        <div class="form-group">
-            <input type="email" class="form-control form-control-user @error('email') is-invalid @enderror" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address..." name="email" id="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-            @error('email')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-        </div>
-
-        <div class="form-group">
-            <input type="password" class="form-control form-control-user @error('password') is-invalid @enderror" id="exampleInputPassword" placeholder="Password" name="password" id="password" required autocomplete="current-password">
-
-            @error('password')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-        </div>
-
-        <div class="form-group">
-            <div class="custom-control custom-checkbox small">
-            <input type="checkbox" class="custom-control-input" id="customCheck">
-            <label class="custom-control-label" for="customCheck">Remember Me</label>
-            </div>
-        </div>
-        
-        <button type="submit" class="btn btn-primary btn-user btn-block">Login</button>
-
-        <hr>
-        <a href="#" class="btn btn-google btn-user btn-block">
-            <i class="fab fa-google fa-fw"></i> Login con Google
-        </a>
-        <a href="#" class="btn btn-facebook btn-user btn-block">
-            <i class="fab fa-facebook-f fa-fw"></i> Login con Facebook
-        </a>
-    </form>
+    <div class="wrapper wrapper-login">
+		<div class="container container-login animated fadeIn">
+			<h3 class="text-center">Entrar a infinitoApp</h3>
+            <form class="login-form" method="POST" action="{{ route('login') }}" >
+                @csrf
+				<div class="form-group form-floating-label">
+                    <input id="username" name="email" type="email" class="form-control input-border-bottom  @error('email') is-invalid @enderror" value="{{ old('email') }}" required>
+                    <label for="username" class="placeholder">Ingrese su correo</label>
+                    @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>                
+                
+				<div class="form-group form-floating-label">
+                    <input id="password" name="password" type="password" class="form-control input-border-bottom @error('password') is-invalid @enderror" required>                    
+					<label for="password" class="placeholder">Ingrese Password</label>
+					<div class="show-password">
+						<i class="flaticon-interface"></i>
+					</div>
+                </div>
+                
+				<div class="row form-sub m-0">
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input" id="rememberme">
+						<label class="custom-control-label" for="rememberme">Remember Me</label>
+					</div>
+					
+					<a href="#" class="link float-right">Forget Password ?</a>
+				</div>
+				<div class="form-action mb-3">
+                    <button type="submit" class="btn btn-primary btn-rounded btn-login">Entrar</button>
+				</div>
+			</form>
+		</div>
+	</div>
 
 <!--
 <div class="container">
