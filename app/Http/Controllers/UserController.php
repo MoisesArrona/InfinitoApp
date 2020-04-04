@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Rol;
+use App\Empresa;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\UsuarioRequest;
 
 class UserController extends Controller
 {
@@ -28,7 +30,8 @@ class UserController extends Controller
     public function create()
     {
         $roles = Rol::all();
-        return view('usuario.crear', compact('roles'));
+        $empresas = Empresa::all();
+        return view('usuario.crear', compact(['roles', 'empresas']));
     }
 
     /**
@@ -37,13 +40,13 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UsuarioRequest $request)
     {
         //Condicionamos para saber si existe una foto en la peticion
         if($request->hasFile('foto')){
             //asiganmos la foto a la variable y cambiamos el nombre y movemos el archivo
             $file = $request->file('foto');
-            $name = $request->name.$request->email.$file->getClientOriginalName();
+            $name = $request->email.'_'.now().'.png';
             $file->move(public_path().'/imagenes/usuarios/',$name);
         }
         $usuario = new User($request->input());
@@ -74,7 +77,8 @@ class UserController extends Controller
     public function edit(User $usuario)
     {
         $roles = Rol::all();
-        return view('usuario.editar', compact(['roles', 'usuario']));
+        $empresas = Empresa::all();
+        return view('usuario.editar', compact(['roles', 'usuario', 'empresas']));
     }
 
     /**
@@ -91,7 +95,7 @@ class UserController extends Controller
         if($request->hasFile('foto')){
             //asiganmos la foto a la variable y cambiamos el nombre y movemos el archivo
             $file = $request->file('foto');
-            $name = $request->name.$request->email.$file->getClientOriginalName();
+            $name = $request->email.'_'.now().'.png';
             $usuario['foto'] = $name;
             $file->move(public_path().'/imagenes/usuarios/',$name);
         }        

@@ -30,7 +30,7 @@
         </div>
         
         <div class="col-md-6">
-            <a href="/proveedor/" class="card card-stats card-round dropdown-item">
+            <a href="/proveedor/" class="card card-stats card-round btn">
                 <div class="card-body ">
                     <div class="row">
                         <div class="col-5">
@@ -55,7 +55,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title text-center">Listado de tipo de material</h4>
+                    <h4 class="card-title text-center">Listado de tipo de productos</h4>
                     <a href="producto/create" class="btn btn-primary ">
                         <span class="btn-label">
                             <i class="flaticon-add"></i>

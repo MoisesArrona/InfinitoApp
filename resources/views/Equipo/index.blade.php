@@ -3,44 +3,66 @@
 @section('title', 'Equipo')
 
 @section('contenido')
+    <!-- Mensaje -->
     @include('mensajes.satisfactorio')
 
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <a href="equipo/create" class="btn btn-primary btn-icon-split">
-            <span class="icon text-white-50">
-            <i class="fas fa-plus"></i>
-            </span>
-            <span class="text">Agregar</span>
-        </a>
-    </div>
-
+    <!-- Tabla -->
     <div class="row">
-        @foreach ($equipos as $equipo)
-            <div class="col-xl-3 col-md-6 mb-4 ">
-                <div class="card shadow mb-4">
-                    <!-- Card Header - Dropdown -->
-                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-primary">{{$equipo->equipo}}</h6>
-                        <div class="dropdown no-arrow">
-                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                                <div class="dropdown-header">Opciones:</div>
-                                <a class="dropdown-item" href="equipo/{{$equipo->id}}/edit">Editar</a>
-                                <a class="dropdown-item" href="equipo/{{$equipo->id}}/">Ver</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Card Body -->
-                    <div class="card-body">
-                        <h5 class="card-title">Informaciòn</h5>
-                        <p class="card-text">{{$equipo->nombre}}</p>
-                        <p class="card-text">{{$equipo->usuario}}</p>
-                        <p class="card-text">{{$equipo->contraseña}}</p>
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title text-center">Listado de tipo de equipos</h4>
+                    <a href="equipo/create" class="btn btn-primary float-right">
+                        <span class="btn-label">
+                            <i class="flaticon-add"></i>
+                        </span>
+                        Agregar
+                    </a>
+                </div>
+                
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table id="basic-datatables" class="display table table-striped table-hover" >
+                            <thead>
+                                <tr>
+                                    <th>Equipo</th>
+                                    <th>Modelo</th>
+                                    <th>Nombre</th>
+                                    <th style="width: 10%">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>Equipo</th>
+                                    <th>Modelo</th>
+                                    <th>Nombre</th>
+                                    <th style="width: 10%">Acciones</th>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                @foreach ($equipos as $equipo)
+                                    <tr>
+                                        <td>{{$equipo->equipo}}</td>
+                                        <td>{{$equipo->modelo}}</td>
+                                        <td>{{$equipo->nombre}}</td>
+                                        <td>
+                                            <div class="form-button-action">
+                                                <a href="/equipo/{{$equipo->id}}/" class="btn btn-link btn-primary">
+                                                    <i class="fas fa-info-circle"></i>
+                                                </a>
+                                                <a href="/equipo/{{$equipo->id}}/edit" class="btn btn-link btn-warning">
+                                                    <i class="fas fa-pencil-alt"></i>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
-        @endforeach  
-    </div> 
+        </div>
+    </div>
+
 @endsection

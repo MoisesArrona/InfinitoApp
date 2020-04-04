@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Empresa;
 use Illuminate\Http\Request;
+use App\Http\Requests\EmpresaRequest;
 
 class EmpresaController extends Controller
 {
@@ -25,7 +26,8 @@ class EmpresaController extends Controller
      */
     public function create()
     {
-        return view('empresa.crear');
+        $sugerencias = Empresa::all();
+        return view('empresa.crear', compact('sugerencias'));
     }
 
     /**
@@ -34,10 +36,11 @@ class EmpresaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EmpresaRequest $request)
     {
         $empresa = new Empresa($request->input());
         $empresa->save();
+        return redirect('empresa/')->with('estatus', 'Se guardo correctamente: '.$empresa->nombre);
     }
 
     /**
@@ -70,11 +73,11 @@ class EmpresaController extends Controller
      * @param  \App\Empresa  $empresa
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Empresa $empresa)
+    public function update(EmpresaRequest $request, Empresa $empresa)
     {
         $empresa->fill($request->all());
         $empresa->save();
-        return redirect('empresa/'.$empresa->id)->with('estatus', 'Se edito correctamente');
+        return redirect('empresa/'.$empresa->id)->with('estatus', 'Se edito correctamente: '.$empresa->nombre);
     }
 
     /**

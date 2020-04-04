@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\ReporteMail;
 use Facade\FlareClient\Report;
 use Illuminate\Http\Request;
+use App\Http\Requests\ReporteRequest;
+use Illuminate\Support\Carbon;
 
 class ReporteController extends Controller
 {
@@ -17,8 +19,9 @@ class ReporteController extends Controller
      */
     public function index()
     {
-        $reportes = Reporte::all();
-        return view('reporte.index', compact('reportes'));
+        $reportesI = Reporte::where('estatus','!=','finalizado')->get();
+        $reportesT = Reporte::where('estatus','=','finalizado')->whereMonth('created_at', Carbon::now()->startOfMonth())->get();
+        return view('reporte.index', compact(['reportesI', 'reportesT']));
     }
 
     /**
@@ -38,13 +41,13 @@ class ReporteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ReporteRequest $request)
     {
          //Condicionamos para saber si existe una foto en la peticion
          if($request->hasFile('foto')){
             //asiganmos la foto a la variable y cambiamos el nombre y movemos el archivo
             $file = $request->file('foto');
-            $name = $request->nombre.$request->codigo.$file->getClientOriginalName();
+            $name = $request->nombre.'_'.$request->id_usuario.'.png';
             $file->move(public_path().'/imagenes/reportes/',$name);
         }
         /*$reporte = request()->except('_token');
@@ -99,7 +102,7 @@ class ReporteController extends Controller
         if($request->hasFile('foto')){
             //asiganmos la foto a la variable y cambiamos el nombre y movemos el archivo
             $file = $request->file('foto');
-            $name = $request->nombre.$file->getClientOriginalName();
+            $name = $request->nombre.'_'.$request->id_usuario.'.png';
             $reporte['foto']=$name;
             $file->move(public_path().'/imagenes/reportes/',$name);
         }

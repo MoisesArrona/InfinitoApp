@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Equipo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\EquipoRequest;
 
 class EquipoController extends Controller
 {
@@ -26,8 +27,8 @@ class EquipoController extends Controller
      */
     public function create()
     {
-        /*$usuario = User::all();*/
-        return view('equipo.crear');
+        $sugerencias = Equipo::all();
+        return view('equipo.crear', compact('sugerencias'));
     }
 
     /**
@@ -36,7 +37,7 @@ class EquipoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EquipoRequest $request)
     {
         /*$equipo = request()->except('_token');
         Equipo::insert($equipo);*/
@@ -44,7 +45,7 @@ class EquipoController extends Controller
         //Accedemos a los datos del usuario logeado
         $equipo->id_usuario = Auth::user()->id;
         $equipo->save();
-        return redirect('equipo/')->with('estatus', 'Se guardo correctamente');
+        return redirect('equipo/')->with('estatus', 'Se guardo correctamente el equipo: '.$equipo->equipo);
     }
 
     /**
@@ -78,11 +79,11 @@ class EquipoController extends Controller
      * @param  \App\Equipo  $equipo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EquipoRequest $request, Equipo $equipo)
     {
-        $equipo = request()->except('_method', '_token');
-        Equipo::where('id','=',$id)->update($equipo);
-        return redirect('equipo/'.$id)->with('estatus', 'Se edito correctamente');
+        $equipo->fill($request->all());
+        $equipo->save();
+        return redirect('equipo/'.$equipo->id)->with('estatus', 'Se edito correctamente el equipo: '.$equipo->equipo);
     }
 
     /**

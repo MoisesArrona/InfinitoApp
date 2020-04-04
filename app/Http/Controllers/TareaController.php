@@ -6,6 +6,7 @@ use App\Tarea;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\TareaRequest;
+use Illuminate\Support\Carbon;
 
 class TareaController extends Controller
 {
@@ -16,9 +17,9 @@ class TareaController extends Controller
      */
     public function index()
     {
-        $tareas = Tarea::where('estatus','!=','finalizado')->get();
-        $tareasT = Tarea::where('estatus','=','finalizado')->get();
-        return view('tarea.index', compact(['tareas', 'tareasT']));
+        $tareasI = Tarea::where('estatus','!=','finalizado')->get();
+        $tareasT = Tarea::where('estatus','=','finalizado')->whereMonth('created_at', Carbon::now()->startOfMonth())->get();
+        return view('tarea.index', compact(['tareasI', 'tareasT']));
     }
 
     /**
@@ -67,7 +68,7 @@ class TareaController extends Controller
      */
     public function edit(Tarea $tarea)
     {
-        $usuarios = User::all();
+        $usuarios = User::where('id_rol','=',2)->get();
         return view('tarea/editar', compact(['tarea', 'usuarios']));
     }
 
@@ -78,13 +79,13 @@ class TareaController extends Controller
      * @param  \App\Tarea  $tarea
      * @return \Illuminate\Http\Response
      */
-    public function update(TareaRequest $request, Tarea $tarea)
+    public function update(Request $request, Tarea $tarea)
     {
         /*$tarea = request()->except('_method', '_token');
         Tarea::where('id','=',$id)->update($tarea);*/
         $tarea->fill($request->all());
         $tarea->save();
-        return redirect('tarea/'.$tarea->id)->with('estatus', 'Se edito correctamente:'.$tarea->nombre);
+        return redirect('tarea/')->with('estatus', 'Se edito correctamente:'.$tarea->nombre);
     }
 
     /**

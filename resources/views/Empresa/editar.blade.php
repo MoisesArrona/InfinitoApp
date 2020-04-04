@@ -3,30 +3,66 @@
 @section('title', 'Dar de alta empresa')
 
 @section('contenido')
-    <form action="/empresa/{{$empresa->id}}" method="post">
-        @method('PUT')
-        @csrf
-        <div class="form-group">
-            <label for="">Nombre</label>
-            <input class="form-control" type="text" value="{{$empresa->nombre}}" name="nombre">
+    <div class="row">
+        <!-- Formulario -->
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">Ingrese los datos</div>
+                </div>
+                <div class="card-body">
+                    <form action="/empresa/{{$empresa->id}}" method="post">
+                        @method('PUT')
+                        @csrf
+                        <div class="form-group">
+                            <label for="">Nombre</label>
+                            <input class="form-control" type="text" value="{{$empresa->nombre}}" name="nombre">
+                        </div>
+                        @error('nombre')
+                            <code>{{$message}}
+                        @enderror
+
+                        <div class="form-group">
+                            <label for="">Telefono</label>
+                            <input class="form-control" type="text" value="{{$empresa->telefono}}" name="telefono" >
+                        </div>
+                        @error('telefono')
+                            <code>{{$message}}
+                        @enderror
+
+                        <div class="form-group">
+                            <label for="">Correo</label>
+                            <input class="form-control" type="text" value="{{$empresa->correo}}" name="correo">
+                        </div>
+                        @error('correo')
+                            <code>{{$message}}
+                        @enderror
+
+                        <div class="form-group">
+                            <label for="">Web</label>
+                            <input class="form-control" type="text" value="{{$empresa->web}}" name="web" >
+                        </div>
+                        @error('web')
+                            <code>{{$message}}
+                        @enderror
+
+                        <div class="form-group">
+                            <label for="">Domicilio</label>
+                            <input class="form-control" type="text" value="{{$empresa->domicilio}}" name="domicilio">
+                        </div>
+                        @error('domicilio')
+                            <code>{{$message}}
+                        @enderror
+                        
+                        <button class="btn btn-primary" type="submit">Guardar</button>
+                    </form>
+                </div>
+            </div>            
         </div>
-        <div class="form-group">
-            <label for="">Telefono</label>
-            <input class="form-control" type="text" value="{{$empresa->telefono}}" name="telefono" >
+
+        <!-- Mensaje -->
+        <div class="col-md-4">
+            @include('mensajes.error')
         </div>
-        <div class="form-group">
-            <label for="">Correo</label>
-            <input class="form-control" type="text" value="{{$empresa->correo}}" name="correo">
-        </div>
-        <div class="form-group">
-            <label for="">Web</label>
-            <input class="form-control" type="text" value="{{$empresa->web}}" name="web" >
-        </div>
-        <div class="form-group">
-            <label for="">Domicilio</label>
-            <input class="form-control" type="text" value="{{$empresa->domicilio}}" name="domicilio">
-        </div>
-        
-        <button class="btn btn-primary" type="submit">Guardar</button>
-    </form>
+    </div>  
 @endsection

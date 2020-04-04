@@ -13,7 +13,7 @@
                         @csrf
                         <div class="form-group">
                             <label for="">Nombre</label>
-                            <input class="form-control" type="text" name="nombre">
+                            <input class="form-control" type="text" value="{{old('nombre')}}" name="nombre">
                             @error('nombre')
                                 <code>{{$message}}</code>
                             @enderror
@@ -21,7 +21,7 @@
                 
                         <div class="form-group">
                             <label for="">descripcion</label>
-                            <input class="form-control" type="text" name="descripcion" >
+                            <input class="form-control" type="text" value="{{old('descripcion')}}" name="descripcion" >
                             @error('descripcion')
                                 <code>{{$message}}</code>
                             @enderror
@@ -30,12 +30,7 @@
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <label for="">Estatus</label>
-                                <select class="form-control input-square" name="estatus">
-                                    <option value="">--Por favor selecciona el estatus--</option>
-                                    <option value="inicio"> Inicio</option>
-                                    <option value="proceso"> Proceso</option>
-                                    <option value="finalizado"> Finalizado</option>
-                                </select>
+                                <input class="form-control" type="text" name="estatus" value="inicio" readonly>
                                 @error('estatus')
                                     <code>{{$message}}</code>
                                 @enderror
@@ -44,7 +39,7 @@
                             <div class="form-group col-md-6">
                                 <label for="">Usuario</label>
                                 <select class="form-control input-square" name="id_usuario">
-                                    <option value="">--Por favor selecciona el empleado--</option>
+                                    <option value="{{old('id_usuario')}}">--Por favor selecciona el empleado--</option>
                                     @foreach ($usuarios as $usuario)
                                         <option value="{{$usuario->id}}"> {{$usuario->name}}</option>
                                     @endforeach

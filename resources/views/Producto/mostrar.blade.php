@@ -47,8 +47,8 @@
                                     <p class="card-text">Modelo: {{$producto->modelo}}</p>
                                     <p class="card-text">Nombre: {{$producto->nombre}}</p>
                                     <p class="card-text">Existencia: {{$producto->existencia}}</p>
-                                    <p class="card-text">Proveedor: {{$producto->id_proveedor}}</p>
-                                    <p class="card-text">Tipo{{$producto->id_tipo}}</p>
+                                    <p class="card-text">Proveedor: <a href="/proveedor/{{$producto->id}}"> {{$producto->proveedores->nombre}} </a></p>
+                                    <p class="card-text">Tipo: {{$producto->tipos->nombre}}</p>
                                 </div>
                                 <div class="tab-pane fade" id="v-pills-profile-icons" role="tabpanel" aria-labelledby="v-pills-profile-tab-icons">
                                     <p>Dado de alta: {{$producto->created_at}}</p>

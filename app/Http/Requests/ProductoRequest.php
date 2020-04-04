@@ -30,8 +30,8 @@ class ProductoRequest extends FormRequest
             'nombre' => ['required', 'max:50'],
             'existencia' => ['required', 'integer'],
             'foto' => ['file', 'mimes:jpeg,bmp,png'],
-            'id_tipo' => ['required'],
-            'id_proveedor' => ['required'],
+            'id_tipo' => ['required', 'integer'],
+            'id_proveedor' => ['required', 'integer'],
         ];
     }
 
@@ -53,8 +53,10 @@ class ProductoRequest extends FormRequest
             'foto.mimes' => 'Añade una imagen jpeg o png',
 
             'id_tipo.required' => 'El campo :attribute es obligatorio',
+            'existencia.integer' => 'El campo :attribute debe ser numerico',
 
             'id_proveedor.required' => 'El campo :attribute es obligatorio',
+            'existencia.integer' => 'El campo :attribute debe ser numerico',
         ];
     }
 }

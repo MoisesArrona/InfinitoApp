@@ -1,8 +1,8 @@
-@if ($errors->get('nombre') || $errors->get('codigo')) 
+@if ($errors->get('nombre') || $errors->get('codigo') ) 
     <div class="card shadow mb-4">
         <div class="card-header">
             <div class="card-title">Recomendaciones</div>
-            <p>Te mostramos algunos de los nombres que ya estan registrados</p>
+            <p class="card-category">Te mostramos algunos de los nombres que ya estan registrados</p>
         </div>
         <div class="card-body pb-0">
             @foreach ($sugerencias as $sugerencia)
@@ -14,6 +14,10 @@
                 </div>
                 <div class="separator-dashed"></div>
             @endforeach 
+        </div>
+        <div class="card-header">
+            <div class="card-title">Otras recomendaciones</div>
+            <p class="card-category">Si no poses la información para llenar un campo puedes intentar con 3 puntos ejemplo ...</p>
         </div>
     </div>
 @endif
