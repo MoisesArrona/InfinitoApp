@@ -1,5 +1,7 @@
 @extends('layouts.plantilla')
 
+@section('title', 'Cambiar estatus de tarea')
+
 @section('contenido')
     <div class="row">
         <!-- Formulario -->

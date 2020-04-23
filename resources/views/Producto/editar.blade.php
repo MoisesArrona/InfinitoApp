@@ -3,7 +3,7 @@
 @section('title', 'Editar producto')
 
 @section('contenido')
-        <div class="row">
+    <div class="row">
         <!-- Formulario -->
         <div class="col-md-8">
             <div class="card">

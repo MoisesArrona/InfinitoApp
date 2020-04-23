@@ -42,8 +42,8 @@
                                 <div class="tab-pane fade show active" id="v-pills-home-icons" role="tabpanel" aria-labelledby="v-pills-home-tab-icons">
                                     <p>Contacto: {{$proveedor->contacto}}</p>
                                     <p>Telefono: {{$proveedor->telefono}}</p>
-                                    <p>Correo: {{$proveedor->correo}}</p>
-                                    <p>Web: {{$proveedor->web}}</p>
+                                    <p>Correo: <a href="mailto:{{$proveedor->correo}}">{{$proveedor->correo}}</a></p>
+                                    <p>Web: <a href="{{$proveedor->web}}" target="_blank">{{$proveedor->web}}</a></p>
                                     <p>Domicilio: {{$proveedor->domicilio}}</p>
                                 </div>
                                 <div class="tab-pane fade" id="v-pills-profile-icons" role="tabpanel" aria-labelledby="v-pills-profile-tab-icons">

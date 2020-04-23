@@ -93,7 +93,7 @@
                                         <td>{{$usuario->name}}</td>
                                         <td>{{$usuario->email}}</td>
                                         <td>{{$usuario->roles->nombre}}</td>
-                                        <td>{{$usuario->empresas}}</td>
+                                        <td>{{$usuario->empresas->nombre}}</td>
                                         <td>
                                             <div class="avatar avatar-sm">
                                                 <img src="/imagenes/usuarios/{{$usuario->foto}}" alt="..." class="avatar-img rounded-circle">

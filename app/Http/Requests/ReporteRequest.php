@@ -26,7 +26,7 @@ class ReporteRequest extends FormRequest
         return [
             'nombre' => ['required', 'max:50'],
             'descripcion' => ['required', 'max:150'],
-            'foto' => ['file', 'mimes:jpeg,bmp,png'],
+            'foto' => ['required','file', 'mimes:jpeg,bmp,png'],
             'remoto' => ['required', 'max:50'],
             'remoto_id' => ['required', 'max:50'],
             'remoto_pass' => ['required', 'max:50'],

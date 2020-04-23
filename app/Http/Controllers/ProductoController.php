@@ -106,6 +106,20 @@ class ProductoController extends Controller
         return redirect('producto/'.$producto->id)->with('estatus', 'Se edito correctamente: '.$producto->nombre.' Con codigo: '.$producto->codigo);
     }
 
+    public function salida(Producto $producto)
+    {
+        $tipos = Tipo::all();
+        $proveedores = Proveedor::all();
+        return view('producto/salida', compact(['producto', 'tipos', 'proveedores']));
+    }
+
+    public function salidas(Request $request, Producto $producto)
+    {
+        $producto = Producto::find($request->input('id'));
+        $producto->existencia = ($producto->existencia - $request->input('cantidad'));
+        $producto->save();
+        return redirect('producto/'.$producto->id)->with('estatus', 'Se edito correctamente: '.$producto->nombre.' Con codigo: '.$producto->codigo);
+    }
     /**
      * Remove the specified resource from storage.
      *

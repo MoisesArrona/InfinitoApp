@@ -21,7 +21,8 @@ class ReporteController extends Controller
     {
         $reportesI = Reporte::where('estatus','!=','finalizado')->get();
         $reportesT = Reporte::where('estatus','=','finalizado')->whereMonth('created_at', Carbon::now()->startOfMonth())->get();
-        return view('reporte.index', compact(['reportesI', 'reportesT']));
+        $reportes = Reporte::all();
+        return view('reporte.index', compact(['reportesI', 'reportesT', 'reportes']));
     }
 
     /**
@@ -43,25 +44,20 @@ class ReporteController extends Controller
      */
     public function store(ReporteRequest $request)
     {
+        $reporte = new Reporte($request->input());
          //Condicionamos para saber si existe una foto en la peticion
          if($request->hasFile('foto')){
             //asiganmos la foto a la variable y cambiamos el nombre y movemos el archivo
             $file = $request->file('foto');
             $name = $request->nombre.'_'.$request->id_usuario.'.png';
             $file->move(public_path().'/imagenes/reportes/',$name);
+            $reporte->foto = $name;
         }
-        /*$reporte = request()->except('_token');
-        $reporte['foto']=$name;
-        Reporte::insert($reporte);*/
-        $reporte = new Reporte($request->input());
-        $reporte->foto = $name;
-        //accedemos a los datos del usuario
         $reporte->id_usuario = auth()->user()->id;
         $reporte->save();
         //Envio de correo de alta de reporte
         Mail::to(auth()->user()->email)->send(new ReporteMail($reporte));
-        return new ReporteMail($reporte);
-        //return redirect('reporte/')->with('estatus', 'Se guardo correctamente');
+        return redirect('reporte/')->with('estatus', 'Se levanto el ticket'.$reporte->nombre.' correctamente');
     }
 
     /**
@@ -99,21 +95,15 @@ class ReporteController extends Controller
     {
         //$reporte = request()->except('_method', '_token', 'foto');
         $reporte->fill($request->all());
-        if($request->hasFile('foto')){
-            //asiganmos la foto a la variable y cambiamos el nombre y movemos el archivo
-            $file = $request->file('foto');
-            $name = $request->nombre.'_'.$request->id_usuario.'.png';
-            $reporte['foto']=$name;
-            $file->move(public_path().'/imagenes/reportes/',$name);
-        }
-        //Reporte::where('id','=',$id)->update($reporte);
-        return redirect('reporte/'.$reporte->id)->with('estatus', 'Se edito correctamente');
+        $reporte->save();
+        Mail::to(auth()->user()->email)->send(new ReporteMail($reporte));
+        return redirect('reporte/')->with('estatus', 'Se edito correctamente el ticket: '.$reporte->nombre);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Reporte  $reporte
+     * @param  \App\Equipo  $equipo
      * @return \Illuminate\Http\Response
      */
     public function destroy(Reporte $reporte)

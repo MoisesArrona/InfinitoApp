@@ -1,6 +1,6 @@
 @extends('layouts.plantilla')
 
-@section('title', 'Tipo de material')
+@section('title', 'Tipo de producto')
 
 @section('contenido')
     <!-- Mensaje -->

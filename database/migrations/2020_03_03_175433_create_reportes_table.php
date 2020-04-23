@@ -22,6 +22,7 @@ class CreateReportesTable extends Migration
             $table->string('remoto_id', 50);
             $table->string('remoto_pass', 50);
             $table->string('estatus');
+            $table->string('observacion')->nullable();
             $table->unsignedBigInteger('id_usuario');
             $table->foreign('id_usuario')->references('id')->on('users');
             $table->timestamps();

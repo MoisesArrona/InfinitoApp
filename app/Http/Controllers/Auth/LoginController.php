@@ -44,4 +44,21 @@ class LoginController extends Controller
     protected function loggedOut(Request $request) {
         return redirect('/');
     }
+
+    //Redireccionar segun rol
+    public function redirectPath()
+    {
+        if (auth()->user()->id_rol == 1) 
+        {
+            return '/administrador';
+        }
+        else if (auth()->user()->id_rol == 2)
+        {
+            return '/personal';
+        }
+        else
+        {
+            return '/cliente';
+        }
+    }
 }

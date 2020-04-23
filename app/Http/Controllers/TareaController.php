@@ -6,7 +6,9 @@ use App\Tarea;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\TareaRequest;
+use App\Mail\TareaMail;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Mail;
 
 class TareaController extends Controller
 {
@@ -19,7 +21,8 @@ class TareaController extends Controller
     {
         $tareasI = Tarea::where('estatus','!=','finalizado')->get();
         $tareasT = Tarea::where('estatus','=','finalizado')->whereMonth('created_at', Carbon::now()->startOfMonth())->get();
-        return view('tarea.index', compact(['tareasI', 'tareasT']));
+        $tareas = Tarea::all();
+        return view('tarea.index', compact(['tareasI', 'tareasT', 'tareas']));
     }
 
     /**
@@ -45,6 +48,9 @@ class TareaController extends Controller
         Tarea::insert($tarea);*/
         $tarea = new Tarea($request->input());
         $tarea->save();
+        Mail::to(auth()->user()->email)->send(new TareaMail($tarea));
+        $usuario = User::find($tarea->id_usuario);
+        Mail::to($usuario->email)->send(new TareaMail($tarea));
         return redirect('tarea/')->with('estatus', 'Se a iniciado la tarea: '.$tarea->nombre);
     }
 
@@ -85,7 +91,10 @@ class TareaController extends Controller
         Tarea::where('id','=',$id)->update($tarea);*/
         $tarea->fill($request->all());
         $tarea->save();
-        return redirect('tarea/')->with('estatus', 'Se edito correctamente:'.$tarea->nombre);
+        Mail::to(auth()->user()->email)->send(new TareaMail($tarea));
+        $usuario = User::find($tarea->id_usuario);
+        Mail::to($usuario->email)->send(new TareaMail($tarea));
+        return redirect('tarea/')->with('estatus', 'Se cambio el estatus de la tarea: :'.$tarea->nombre. ' a: '.$tarea->estatus);
     }
 
     /**

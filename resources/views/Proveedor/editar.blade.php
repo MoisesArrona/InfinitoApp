@@ -51,7 +51,7 @@
                 
                         <div class="form-group">
                             <label for="">Web</label>
-                            <input class="form-control" type="text" value="{{$proveedor->web}}" name="web">
+                            <input class="form-control" type="url" value="{{$proveedor->web}}" name="web">
                             @error('web')
                                 <code>{{$message}}</code>
                             @enderror

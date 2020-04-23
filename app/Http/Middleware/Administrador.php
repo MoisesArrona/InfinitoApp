@@ -22,7 +22,7 @@ class Administrador
 
         //Usuario administrador
         if(!(auth()->user()->id_rol == 1)){
-            return redirect('/');
+            abort(403, 'Unauthorized action.');
         }
 
         return $next($request);

@@ -63,7 +63,8 @@ class EmpresaController extends Controller
      */
     public function edit(Empresa $empresa)
     {
-        return view('empresa.editar', compact('empresa'));
+        $sugerencias = Empresa::all();
+        return view('empresa.editar', compact(['empresa', 'sugerencias']));
     }
 
     /**

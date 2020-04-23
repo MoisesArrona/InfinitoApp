@@ -36,6 +36,7 @@
                             @enderror
                         </div>
                 
+                        <label for="">Selecciona la foto</label>
                         <div class="custom-file">
                             <input class="custom-file-input" type="file" name="foto">
                             <label class="custom-file-label" for="customFile">Selecciona la foto</label>
@@ -44,30 +45,32 @@
                             @enderror
                         </div>
 
-                        <div class="form-group">
-                            <label for="">Rol</label>
-                            <select class="form-control input-square" value="{{old('id_rol')}}" name="id_rol">
-                                <option value="">--Por favor selecciona el rol--</option>
-                                @foreach ($roles as $rol)
-                                    <option value="{{$rol->id}}"> {{$rol->nombre}}</option>
-                                @endforeach
-                            </select>
-                            @error('id_rol')
-                                <code>{{$message}}</code>
-                            @enderror
-                        </div>
-
-                        <div class="form-group">
-                            <label for="">Empresa</label>
-                            <select class="form-control input-square" value="{{old('id_empresa')}}" name="id_empresa">
-                                <option value="">--Por favor selecciona la empresa--</option>
-                                @foreach ($empresas as $empresa)
-                                    <option value="{{$empresa->id}}"> {{$empresa->nombre}}</option>
-                                @endforeach
-                            </select>
-                            @error('id_empresa')
-                                <code>{{$message}}</code>
-                            @enderror
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="">Rol</label>
+                                <select class="form-control input-square" name="id_rol">
+                                    <option value="">--Por favor selecciona el rol--</option>
+                                    @foreach ($roles as $rol)
+                                        <option value="{{$rol->id}}"> {{$rol->nombre}}</option>
+                                    @endforeach
+                                </select>
+                                @error('id_rol')
+                                    <code>{{$message}}</code>
+                                @enderror
+                            </div>
+    
+                            <div class="form-group col-md-6">
+                                <label for="">Empresa</label>
+                                <select class="form-control input-square" name="id_empresa">
+                                    <option value="">--Por favor selecciona la empresa--</option>
+                                    @foreach ($empresas as $empresa)
+                                        <option value="{{$empresa->id}}"> {{$empresa->nombre}}</option>
+                                    @endforeach
+                                </select>
+                                @error('id_empresa')
+                                    <code>{{$message}}</code>
+                                @enderror
+                            </div>
                         </div>
 
                         <button class="btn btn-primary" type="submit">Guardar</button>
@@ -76,9 +79,6 @@
             </div>            
         </div>
         
-        <!-- Mensaje -->
-        <div class="col-md-4">
-            @include('mensajes.error')
-        </div>
+        
     </div>
 @endsection

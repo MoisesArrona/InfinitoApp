@@ -41,8 +41,8 @@
                            <div class="tab-content" id="v-pills-with-icon-tabContent">
                                <div class="tab-pane fade show active" id="v-pills-home-icons" role="tabpanel" aria-labelledby="v-pills-home-tab-icons">
                                     <p class="card-text">Telefono: {{$empresa->telefono}}</p>
-                                    <p class="card-text">Correo: {{$empresa->correo}}</p>
-                                    <p class="card-text">Web: {{$empresa->web}}</p>
+                                    <p>Correo: <a href="mailto:{{$empresa->correo}}">{{$empresa->correo}}</a></p>
+                                    <p>Web: <a href="{{$empresa->web}}" target="_blank">{{$empresa->web}}</a></p>
                                     <p class="card-text">Domiclio: {{$empresa->domicilio}}</p>
                                </div>
                                <div class="tab-pane fade" id="v-pills-profile-icons" role="tabpanel" aria-labelledby="v-pills-profile-tab-icons">

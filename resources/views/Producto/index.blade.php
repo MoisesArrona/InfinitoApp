@@ -56,19 +56,13 @@
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title text-center">Listado de tipo de productos</h4>
-                    <a href="producto/create" class="btn btn-primary ">
+                    <a href="/producto/create" class="btn btn-primary float-right">
                         <span class="btn-label">
                             <i class="flaticon-add"></i>
                         </span>
                         Agregar
                     </a>
-
-                    <a href="producto/" class="btn btn-primary ">
-                        <span class="btn-label">
-                            <i class="flaticon-cart-1"></i>
-                        </span>
-                        Salida
-                    </a>
+                    
                 </div>
                 
                 <div class="card-body">

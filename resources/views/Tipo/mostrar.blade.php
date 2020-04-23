@@ -1,6 +1,6 @@
 @extends('layouts.plantilla')
 
-@section('title', 'Informacion sobre tipo de material')
+@section('title', 'Informacion sobre tipo de maproductoterial')
 
 @section('contenido')
     <!-- Mensaje -->

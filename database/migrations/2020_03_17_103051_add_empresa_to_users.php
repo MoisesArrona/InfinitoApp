@@ -14,7 +14,7 @@ class AddEmpresaToUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->unsignedBigInteger('id_empresa')->nullable();
+            $table->unsignedBigInteger('id_empresa');
             $table->foreign('id_empresa')->references('id')->on('empresas');
         });
     }

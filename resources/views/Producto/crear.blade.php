@@ -48,6 +48,7 @@
                             </div>
                         </div>
                 
+                        <label for="">Selecciona la imagen</label>
                         <div class="custom-file">
                             <input class="custom-file-input" src="/Base/caja.png" type="file" name="foto">
                             <label class="custom-file-label" for="customFile">Selecciona la foto</label>

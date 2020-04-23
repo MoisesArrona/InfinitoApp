@@ -1,6 +1,6 @@
 @extends('layouts.plantilla')
 
-@section('title', 'Informacion el reporte')
+@section('title', 'Informacion el ticket')
 
 @section('contenido')
     @include('mensajes.satisfactorio')

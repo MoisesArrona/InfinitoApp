@@ -56,8 +56,8 @@
                         </div>
                 
                         <div class="form-group">
-                            <label for="">domicilio</label>
-                            <input class="form-control" type="text" value="{{old('domicilio')}}" name="domicilio" >
+                            <label for="">Domicilio</label>
+                            <input class="form-control" type="url" value="{{old('domicilio')}}" name="domicilio" >
                             @error('domicilio')
                                 <code>{{$message}}</code>
                             @enderror

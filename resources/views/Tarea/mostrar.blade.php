@@ -1,5 +1,7 @@
 @extends('layouts.plantilla')
 
+@section('title', 'Informacion de tarea')
+
 @section('contenido')
 
     <!-- Mensaje -->
@@ -40,8 +42,8 @@
                             <div class="tab-content" id="v-pills-with-icon-tabContent">
                                 <div class="tab-pane fade show active" id="v-pills-home-icons" role="tabpanel" aria-labelledby="v-pills-home-tab-icons">
                                     <p>Descripción: {{$tarea->descripcion}}</p>
-                                    <p>Descripción: {{$tarea->estatus}}</p>
-                                    <p>Descripción: {{$tarea->personal->name}}</p>
+                                    <p>Estatus: {{$tarea->estatus}}</p>
+                                    <p>Responsable: {{$tarea->personal->name}}</p>
                                 </div>
                                 <div class="tab-pane fade" id="v-pills-profile-icons" role="tabpanel" aria-labelledby="v-pills-profile-tab-icons">
                                     <p>Dado de alta: {{$tarea->created_at}}</p>

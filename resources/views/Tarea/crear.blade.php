@@ -1,5 +1,7 @@
 @extends('layouts.plantilla')
 
+@section('title', 'Dar de alta tarea')
+
 @section('contenido')
     <div class="row">
         <!-- Formulario -->

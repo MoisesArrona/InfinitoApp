@@ -58,7 +58,6 @@
                 </div>
             </div>            
         </div>
-
         <!-- Mensaje -->
         <div class="col-md-4">
             @include('mensajes.error')

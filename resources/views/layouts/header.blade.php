@@ -3,7 +3,7 @@
 	<div class="logo-header">
 		
 		<a href="index.html" class="logo">
-			<img src="../assets/img/logoazzara.svg" alt="navbar brand" class="navbar-brand">
+			<img src="/assets/img/logoazzara.svg" alt="navbar brand" class="navbar-brand">
 		</a>
 		<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon">
@@ -51,8 +51,8 @@
 					<ul class="dropdown-menu messages-notif-box animated fadeIn" aria-labelledby="messageDropdown">
 						<li>
 							<div class="dropdown-title d-flex justify-content-between align-items-center">
-								Messages 									
-								<a href="#" class="small">Mark all as read</a>
+								Mensajes 									
+								<a href="#" class="small">ver mas</a>
 							</div>
 						</li>
 						<li>
@@ -63,11 +63,11 @@
 											<img src="../assets/img/jm_denis.jpg" alt="Img Profile">
 										</div>
 										<div class="notif-content">
-											<span class="subject">Jimmy Denis</span>
+											<span class="subject">Pablo Montoya</span>
 											<span class="block">
-												How are you ?
+												Se termino?
 											</span>
-											<span class="time">5 minutes ago</span> 
+											<span class="time">5 minutos</span> 
 										</div>
 									</a>
 									<a href="#">
@@ -75,11 +75,11 @@
 											<img src="../assets/img/chadengle.jpg" alt="Img Profile">
 										</div>
 										<div class="notif-content">
-											<span class="subject">Chad</span>
+											<span class="subject">Dani Cortes</span>
 											<span class="block">
-												Ok, Thanks !
+												En seguida moy
 											</span>
-											<span class="time">12 minutes ago</span> 
+											<span class="time">12 minutos</span> 
 										</div>
 									</a>
 									<a href="#">
@@ -87,23 +87,11 @@
 											<img src="../assets/img/mlane.jpg" alt="Img Profile">
 										</div>
 										<div class="notif-content">
-											<span class="subject">Jhon Doe</span>
+											<span class="subject">Lic Santoyo</span>
 											<span class="block">
-												Ready for the meeting today...
+												Mañana te lo envio
 											</span>
-											<span class="time">12 minutes ago</span> 
-										</div>
-									</a>
-									<a href="#">
-										<div class="notif-img"> 
-											<img src="../assets/img/talha.jpg" alt="Img Profile">
-										</div>
-										<div class="notif-content">
-											<span class="subject">Talha</span>
-											<span class="block">
-												Hi, Apa Kabar ?
-											</span>
-											<span class="time">17 minutes ago</span> 
+											<span class="time">12 minutos</span> 
 										</div>
 									</a>
 								</div>
@@ -121,7 +109,7 @@
 					</a>
 					<ul class="dropdown-menu notif-box animated fadeIn" aria-labelledby="notifDropdown">
 						<li>
-							<div class="dropdown-title">You have 4 new notification</div>
+							<div class="dropdown-title">Tienes Notificaciones</div>
 						</li>
 						<li>
 							<div class="notif-scroll scrollbar-outer">
@@ -130,18 +118,18 @@
 										<div class="notif-icon notif-primary"> <i class="fa fa-user-plus"></i> </div>
 										<div class="notif-content">
 											<span class="block">
-												New user registered
+												Se agrego un nuevo cliente
 											</span>
-											<span class="time">5 minutes ago</span> 
+											<span class="time">5 minutos</span> 
 										</div>
 									</a>
 									<a href="#">
 										<div class="notif-icon notif-success"> <i class="fa fa-comment"></i> </div>
 										<div class="notif-content">
 											<span class="block">
-												Rahmad commented on Admin
+												Moises mando un mensaje
 											</span>
-											<span class="time">12 minutes ago</span> 
+											<span class="time">12 minutoso</span> 
 										</div>
 									</a>
 									<a href="#">
@@ -150,38 +138,39 @@
 										</div>
 										<div class="notif-content">
 											<span class="block">
-												Reza send messages to you
+												Juan Levanto un ticket
 											</span>
-											<span class="time">12 minutes ago</span> 
-										</div>
-									</a>
-									<a href="#">
-										<div class="notif-icon notif-danger"> <i class="fa fa-heart"></i> </div>
-										<div class="notif-content">
-											<span class="block">
-												Farrah liked Admin
-											</span>
-											<span class="time">17 minutes ago</span> 
+											<span class="time">12 minutos </span> 
 										</div>
 									</a>
 								</div>
 							</div>
 						</li>
 						<li>
-							<a class="see-all" href="javascript:void(0);">See all notifications<i class="fa fa-angle-right"></i> </a>
+							<a class="see-all" href="javascript:void(0);">Mira todas las notificaciones<i class="fa fa-angle-right"></i> </a>
 						</li>
 					</ul>
 				</li>
 				<li class="nav-item dropdown hidden-caret">
 					<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
 						<div class="avatar-sm">
-							<img src="/imagenes/usuarios/{{ auth()->user()->foto }}" alt="..." class="avatar-img rounded-circle">
+							@if (auth()->user()->foto == null)
+								<img src="/Base/mono.png" alt="..." class="avatar-img rounded-circle">
+							@else
+								<img src="/imagenes/usuarios/{{ auth()->user()->foto }}" alt="image profile" class="avatar-img rounded-circle">
+							@endif
 						</div>
 					</a>
 					<ul class="dropdown-menu dropdown-user animated fadeIn">
 						<li>
 							<div class="user-box">
-								<div class="avatar-lg"><img src="/imagenes/usuarios/{{ auth()->user()->foto }}" alt="image profile" class="avatar-img rounded"></div>
+								<div class="avatar-lg">
+									@if (auth()->user()->foto == null)
+										<img src="/Base/mono.png" alt="..." class="avatar-img rounded-circle">
+									@else
+										<img src="/imagenes/usuarios/{{ auth()->user()->foto }}" alt="image profile" class="avatar-img rounded-circle">
+									@endif
+								</div>
 								<div class="u-text">
 									<h4>{{ auth()->user()->name }}</h4>
 									<p class="text-muted">{{ auth()->user()->email }}</p>

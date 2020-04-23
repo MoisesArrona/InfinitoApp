@@ -18,6 +18,7 @@ class UsuarioSeeder extends Seeder
         $usuario->email = "arronamoisesar@outlook.com";
         $usuario->password = Hash::make('12345678');
         $usuario->id_rol = 1;
+        $usuario->id_empresa = 1;
         $usuario->save();
 
         $usuario = new User();
@@ -25,13 +26,15 @@ class UsuarioSeeder extends Seeder
         $usuario->email = "arronamoisesarE@outlook.com";
         $usuario->password = Hash::make('12345678');
         $usuario->id_rol = 2;
+        $usuario->id_empresa = 1;
         $usuario->save();
 
         $usuario = new User();
         $usuario->name = "Cliente Villanueva";
-        $usuario->email = "arronamoisesarC@outlook.com";
+        $usuario->email = "arronamoisesar@gmail.com";
         $usuario->password = Hash::make('12345678');
         $usuario->id_rol = 3;
+        $usuario->id_empresa = 2;
         $usuario->save();
     }
 }

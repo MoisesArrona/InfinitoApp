@@ -8,6 +8,7 @@ use App\Rol;
 use App\Empresa;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\UsuarioRequest;
+use App\Reporte;
 
 class UserController extends Controller
 {
@@ -42,15 +43,15 @@ class UserController extends Controller
      */
     public function store(UsuarioRequest $request)
     {
+        $usuario = new User($request->input());
         //Condicionamos para saber si existe una foto en la peticion
         if($request->hasFile('foto')){
             //asiganmos la foto a la variable y cambiamos el nombre y movemos el archivo
             $file = $request->file('foto');
             $name = $request->email.'_'.now().'.png';
             $file->move(public_path().'/imagenes/usuarios/',$name);
+            $usuario->foto = $name;
         }
-        $usuario = new User($request->input());
-        $usuario->foto = $name;
         $usuario->password = Hash::make($request->input('password'));
         $usuario->save();
         return redirect('usuario/')->with('estatus', 'Se guardo correctamente');
@@ -65,7 +66,8 @@ class UserController extends Controller
     public function show($id)
     {
         $usuario = User::find($id);
-        return view('usuario.mostrar', compact('usuario'));
+        $reportes = Reporte::where('id_usuario','=',$id)->get();
+        return view('usuario.mostrar', compact(['usuario', 'reportes']));
     }
 
     /**

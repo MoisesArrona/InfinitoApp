@@ -14,42 +14,51 @@ use Illuminate\Support\Facades\Route;
 */
 
 /*Redirecciona al login de la aplicación como raíz*/
+Auth::routes(['register' => false]);
+
 Route::get('/', function () {
     return view('auth.login');
 });
 
 /*Proteger rutas a nivel de rol por middleware*/
-Route::middleware(['administrador'])->group(function(){
-    /*Rutas para modulos del sistema
-    acceso a todas las funciones de los controladores*/
-    Route::resource('tipo', 'TipoController');
+Route::group(['middleware' => 'auth'], function () {
+    Route::group(['middleware' => 'administrador'], function () {
+        Route::get('/administrador', 'HomeController@administrador');
+        
+        Route::resource('/tipo', 'TipoController');
+        
+        Route::resource('/proveedor', 'ProveedorController');
+        
+        Route::resource('/producto', 'ProductoController');
+        
+        Route::resource('/equipo', 'EquipoController');
+                    
+        Route::resource('/empresa', 'EmpresaController');
+        
+        Route::resource('/usuario', 'UserController');
+    });
+    
+    Route::group(['middleware' => 'personal'], function () {
+        Route::get('/personal', 'HomeController@personal');    
+    });
 
-    Route::resource('proveedor', 'ProveedorController');
+    Route::group(['middleware' => 'cliente'], function () {
+        Route::get('/cliente', 'HomeController@cliente');
 
-    Route::resource('producto', 'ProductoController');
+        Route::resource('/reporte', 'ReporteController', [
+            'only' => ['show','create']
+        ]);
 
-    Route::resource('tarea', 'tareaController');
+        Route::resource('/reporte', 'ReporteController', [
+            'except' => ['index', 'show', 'edit']
+        ]);
+    });
 
-    Route::resource('equipo', 'EquipoController');
+    Route::group(['middleware' => ['administrador' || 'personal']], function(){
+        Route::resource('/tarea', 'TareaController');
 
-    Route::resource('reporte', 'ReporteController');
-
-    Route::resource('usuario', 'UserController');
-
-    Route::resource('empresa', 'EmpresaController');
+        Route::resource('/reporte', 'ReporteController', [
+            'only' => ['edit', 'index', 'show']
+        ]);
+    });
 });
-
-/*Rutas para secciones extras
-acceso a vistas*/
-
-Route::view('/ayuda', 'extra.ayuda');
-
-Route::view('/contacto', 'extra.contacto');
-
-Route::view('/novedades', 'extra.novedades');
-
-/*Login*/
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

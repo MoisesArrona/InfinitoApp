@@ -1,6 +1,6 @@
 @extends('layouts.plantilla')
 
-@section('title', 'Dar de alta reporte')
+@section('title', 'Dar de alta ticket')
 
 @section('contenido')
     <div class="row">
@@ -29,6 +29,7 @@
                             @enderror
                         </div>
                 
+                        <label for="">Selecciona la foto</label>
                         <div class="custom-file">
                             <input class="custom-file-input" type="file" name="foto">
                             <label class="custom-file-label" for="customFile">Selecciona la foto</label>

@@ -22,7 +22,7 @@ class Personal
 
         //Usuario personal
         if(!(auth()->user()->id_rol == 2)){
-            return redirect('/');
+            abort(403, 'Unauthorized action.');
         }
         return $next($request);
     }

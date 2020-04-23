@@ -32,7 +32,7 @@
                         <div class="name">{{$usuario->name}}</div>
                         <div class="job">{{$usuario->email}}</div>
                         <div class="job">{{$usuario->roles->nombre}}</div>
-                        <div class="job">{{$usuario->empresas}}</div>
+                        <div class="job">{{$usuario->empresas->nombre}}</div>
                         <div class="desc">{{$usuario->descripcion}}</div>
                         <div class="view-profile">
                             <a href="" class="btn btn-secondary btn-block">Ver perfil completo</a>
@@ -42,7 +42,7 @@
                 <div class="card-footer">
                     <div class="row user-stats text-center">
                         <div class="col">
-                            <div class="number">125</div>
+                            <div class="number">{{count($reportes)}}</div>
                             <div class="title">Reportes</div>
                         </div>
                     </div>
