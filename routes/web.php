@@ -38,9 +38,12 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('/empresa', 'EmpresaController');
         
         Route::resource('/usuario', 'UserController');
+
+        Route::resource('/reporte', 'ReporteController');
+        Route::resource('/tarea', 'TareaController');
     });
     
-    Route::group(['middleware' => 'personal'], function () {
+    /*Route::group(['middleware' => 'personal'], function () {
         Route::get('/personal', 'HomeController@personal');    
     });
 
@@ -62,5 +65,5 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('/reporte', 'ReporteController', [
             'only' => ['edit', 'index', 'show']
         ]);
-    });
+    });*/
 });

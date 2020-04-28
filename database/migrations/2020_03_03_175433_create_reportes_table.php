@@ -17,7 +17,7 @@ class CreateReportesTable extends Migration
             $table->id();
             $table->string('nombre', 50);
             $table->string('descripcion', 150);
-            $table->string('foto');
+            $table->string('foto')->nullable();
             $table->string('remoto', 50);
             $table->string('remoto_id', 50);
             $table->string('remoto_pass', 50);

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Reporte;
+use App\ReporteDetalle;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ReporteMail;
 use Facade\FlareClient\Report;
@@ -69,7 +70,9 @@ class ReporteController extends Controller
     public function show($id)
     {
         $reporte = Reporte::find($id);
-        return view('reporte.mostrar', compact('reporte'));
+        $detalles = ReporteDetalle::where('id_reporte', '=', $id)->get();
+        $reportes = Reporte::where('estatus', '!=', 'finalizado')->take(5)->orderBy('id','DESC')->get();
+        return view('reporte.mostrar', compact(['reporte', 'detalles', 'reportes']));
     }
 
     /**
@@ -93,9 +96,14 @@ class ReporteController extends Controller
      */
     public function update(Request $request, Reporte $reporte)
     {
-        //$reporte = request()->except('_method', '_token', 'foto');
-        $reporte->fill($request->all());
+        $reporte->estatus =$request->input('estatus');
         $reporte->save();
+        //Registro de detalle del reporte
+        $detalle = new ReporteDetalle();
+        $detalle->observacion = $request->input('observacion');
+        $detalle->id_usuario = auth()->user()->id;
+        $detalle->id_reporte = $reporte->id;
+        $detalle->save();
         Mail::to(auth()->user()->email)->send(new ReporteMail($reporte));
         return redirect('reporte/')->with('estatus', 'Se edito correctamente el ticket: '.$reporte->nombre);
     }

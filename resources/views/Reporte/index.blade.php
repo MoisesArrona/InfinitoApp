@@ -1,6 +1,6 @@
 @extends('layouts.plantilla')
 
-@section('title', 'Reportes')
+@section('title', 'Tickets')
 
 @section('contenido')
     @include('mensajes.satisfactorio')
@@ -124,7 +124,7 @@
                                         <div class="col-md-12">
                                             <div class="card">
                                                 <div class="card-header">
-                                                    <h4 class="card-title text-center">Listado de todos los reportes finalizados</h4>
+                                                    <h4 class="card-title text-center">Listado de todos los tickets finalizados</h4>
                                                 </div>
                                                 
                                                 <div class="card-body">

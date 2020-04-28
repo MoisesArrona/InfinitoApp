@@ -76,7 +76,7 @@
                     <li class="nav-item">
                         <a href="/reporte/">
                             <i class="fas fa-book-open"></i>
-                            <p>Reportes</p>
+                            <p>Tickets</p>
                         </a>
                     </li>
                     <li class="nav-item">
