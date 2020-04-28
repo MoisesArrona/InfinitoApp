@@ -29,6 +29,7 @@ class ProductoRequest extends FormRequest
             'modelo' => ['required', 'max:50'],
             'nombre' => ['required', 'max:50'],
             'existencia' => ['required', 'integer'],
+            'precio' => ['required', 'between:0,9999.99', 'numeric'],
             'foto' => ['file', 'mimes:jpeg,bmp,png'],
             'id_tipo' => ['required', 'integer'],
             'id_proveedor' => ['required', 'integer'],
@@ -49,6 +50,10 @@ class ProductoRequest extends FormRequest
 
             'existencia.required' => 'El campo :attribute es obligatorio',
             'existencia.integer' => 'El campo :attribute debe ser numerico',
+
+            'precio.required' => 'El campo :attribute es obligatorio',
+            'precio.between' => 'El campo :attribute no debe de pasar del rango 10,000',
+            'precio.numeric' => 'El campo :attribute debe ser numerico',
 
             'foto.mimes' => 'Añade una imagen jpeg o png',
 

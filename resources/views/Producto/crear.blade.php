@@ -48,13 +48,25 @@
                             </div>
                         </div>
                 
-                        <label for="">Selecciona la imagen</label>
-                        <div class="custom-file">
-                            <input class="custom-file-input" src="/Base/caja.png" type="file" name="foto">
-                            <label class="custom-file-label" for="customFile">Selecciona la foto</label>
-                            @error('foto')
-                                <code>{{$message}}</code>
-                            @enderror
+                        <div class="row">
+                            <div class=" form-group col-md-6">
+                                <label for="">Selecciona la imagen</label>
+                                <div class="custom-file">
+                                    <input class="custom-file-input" src="/Base/caja.png" type="file" name="foto">
+                                    <label class="custom-file-label" for="customFile">Selecciona la foto</label>
+                                    @error('foto')
+                                        <code>{{$message}}</code>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="">Precio</label>
+                                <input class="form-control" type="text" value="{{old('precio')}}" name="precio">
+                                @error('precio')
+                                    <code>{{$message}}</code>
+                                @enderror
+                            </div>
                         </div>
                 
                         <div class="row">

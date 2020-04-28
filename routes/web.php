@@ -22,13 +22,15 @@ Route::get('/', function () {
 
 /*Proteger rutas a nivel de rol por middleware*/
 Route::group(['middleware' => 'auth'], function () {
+    Route::view('/perfil', 'extras.perfil');
+
     Route::group(['middleware' => 'administrador'], function () {
         Route::get('/administrador', 'HomeController@administrador');
         
         Route::resource('/tipo', 'TipoController');
         
         Route::resource('/proveedor', 'ProveedorController');
-        
+ 
         Route::resource('/producto', 'ProductoController');
         
         Route::resource('/equipo', 'EquipoController');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Tarea;
+use App\TareaDetalle;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\TareaRequest;
@@ -44,8 +45,6 @@ class TareaController extends Controller
      */
     public function store(TareaRequest $request)
     {
-        /*$tarea = request()->except('_token');
-        Tarea::insert($tarea);*/
         $tarea = new Tarea($request->input());
         $tarea->save();
         Mail::to(auth()->user()->email)->send(new TareaMail($tarea));
@@ -63,7 +62,9 @@ class TareaController extends Controller
     public function show($id)
     {
         $tarea = Tarea::find($id);
-        return view('tarea.mostrar', compact('tarea'));
+        $detalles = TareaDetalle::where('id_tarea', '=', $id)->get();
+        $tareas = Tarea::where('estatus', '!=', 'finalizado')->take(5)->orderBy('id','DESC')->get();
+        return view('tarea.mostrar', compact(['tarea', 'detalles', 'tareas']));
     }
 
     /**
@@ -87,10 +88,14 @@ class TareaController extends Controller
      */
     public function update(Request $request, Tarea $tarea)
     {
-        /*$tarea = request()->except('_method', '_token');
-        Tarea::where('id','=',$id)->update($tarea);*/
-        $tarea->fill($request->all());
+        $tarea->estatus = $request->input('estatus');
         $tarea->save();
+        //Registro de detalle de tarea
+        $detalle = new TareaDetalle();
+        $detalle->observacion = $request->input('observacion');
+        $detalle->id_usuario = auth()->user()->id;
+        $detalle->id_tarea = $tarea->id;
+        $detalle->save();
         Mail::to(auth()->user()->email)->send(new TareaMail($tarea));
         $usuario = User::find($tarea->id_usuario);
         Mail::to($usuario->email)->send(new TareaMail($tarea));

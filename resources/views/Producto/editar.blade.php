@@ -50,16 +50,32 @@
                             </div>
                         </div>
                 
-                        <div class="custom-file">
-                            <input class="custom-file-input" type="file" name="foto">
-                            <label class="custom-file-label" for="customFile">Selecciona la foto</label>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="">Selecciona la imagen</label>
+                                <div class="custom-file">
+                                    <input class="custom-file-input" type="file" name="foto">
+                                    <label class="custom-file-label" for="customFile">Selecciona la foto</label>
+                                    @error('foto')
+                                        <code>{{$message}}</code>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="">Precio</label>
+                                <input class="form-control" type="text" value="{{$producto->precio}}" name="precio">
+                                @error('precio')
+                                    <code>{{$message}}</code>
+                                @enderror
+                            </div>
                         </div>
                 
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <label for="">Empresa</label>
                                 <select class="form-control input-square" name="id_proveedor">
-                                    <option value="">--Por favor selecciona el proveedor--</option>
+                                    <option value="{{$producto->id_proveedor}}">{{$producto->proveedores->nombre}}</option>
                                     @foreach ($proveedores as $proveedor)
                                         <option value="{{$proveedor->id}}"> {{$proveedor->nombre}}</option>
                                     @endforeach
@@ -72,7 +88,7 @@
                             <div class="form-group col-md-6">
                                 <label for="">Tipo</label>
                                 <select class="form-control input-square" name="id_tipo">
-                                    <option value="">--Por favor selecciona el tipo--</option>
+                                    <option value="{{$producto->id_tipo}}">{{$producto->tipos->nombre}}</option>
                                     @foreach ($tipos as $tipo)
                                         <option value="{{$tipo->id}}"> {{$tipo->nombre}}</option>
                                     @endforeach

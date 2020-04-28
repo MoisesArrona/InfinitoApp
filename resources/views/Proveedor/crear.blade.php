@@ -49,7 +49,7 @@
                 
                         <div class="form-group">
                             <label for="">Web</label>
-                            <input class="form-control" type="text" value="{{old('web')}}" name="web">
+                            <input class="form-control" type="url" value="{{old('web')}}" name="web">
                             @error('web')
                                 <code>{{$message}}</code>
                             @enderror
@@ -57,7 +57,7 @@
                 
                         <div class="form-group">
                             <label for="">Domicilio</label>
-                            <input class="form-control" type="url" value="{{old('domicilio')}}" name="domicilio" >
+                            <input class="form-control" type="text" value="{{old('domicilio')}}" name="domicilio" >
                             @error('domicilio')
                                 <code>{{$message}}</code>
                             @enderror

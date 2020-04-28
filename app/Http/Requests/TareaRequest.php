@@ -25,7 +25,7 @@ class TareaRequest extends FormRequest
     {
         return [
             'nombre' => ['required', 'max:50'],
-            'descripcion' => ['required', 'max:50'],
+            'descripcion' => ['required', 'max:150'],
             'estatus' => ['required', 'max:50'],
             'id_usuario' => ['required', 'integer'],
         ];

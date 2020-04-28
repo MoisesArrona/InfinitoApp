@@ -179,7 +179,7 @@
 						</li>
 						<li>
 							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#">Mi perfil</a>
+							<a class="dropdown-item" href="/perfil">Mi perfil</a>
 							<div class="dropdown-divider"></div>
 							<a class="dropdown-item" href="#">Configuración</a>
 							<div class="dropdown-divider"></div>

@@ -105,6 +105,13 @@
                                                 <a href="producto/{{$producto->id}}/edit" class="btn btn-link btn-warning">
                                                     <i class="fas fa-pencil-alt"></i>
                                                 </a>
+
+                                                <a href="producto/" class="btn btn-link btn-success">
+                                                    <i class="fas fa-plus"></i>
+                                                </a>
+                                                <a href="producto/{{$producto->id}}/salida" class="btn btn-link btn-danger">
+                                                    <i class="fas fa-minus"></i>
+                                                </a>
                                             </div>
                                         </td>
                                     </tr>

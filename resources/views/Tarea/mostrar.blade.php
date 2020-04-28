@@ -48,10 +48,36 @@
                                 <div class="tab-pane fade" id="v-pills-profile-icons" role="tabpanel" aria-labelledby="v-pills-profile-tab-icons">
                                     <p>Dado de alta: {{$tarea->created_at}}</p>
                                     <p>Modificado: {{$tarea->updated_at}}</p>
+                                    <p class="text-center card-title">Información de movimiento</p>
+                                    <p class="text-center ">Muestra quien dio seguimiento a la tarea</p>
+                                    @foreach ($detalles as $detalle)
+                                        <p>Usuario: {{$detalle->usuario->name}}</p>
+                                        <p>Observación:{{$detalle->observacion}}</p>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+        <!--Segerencias-->
+        <div class="card col-md-4">
+            <div class="card-body">
+                <div class="card-title fw-mediumbold">Tareas Pendientes</div>
+                <p>Listado de tareas con mas tiempo sin atender</p>
+                <div class="card-list">
+                    @foreach ($tareas as $tarea)
+                        <div class="item-list">
+                            <div class="info-user ml-3">
+                                <div class="username">{{$tarea->nombre}}</div>
+                                <div class="status">{{$tarea->personal->name}}</div>
+                            </div>
+                            <a href="/tarea/{{$tarea->id}}/edit" class="btn btn-link btn-info">
+                                <i class="fas fa-check"></i>
+                            </a>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>

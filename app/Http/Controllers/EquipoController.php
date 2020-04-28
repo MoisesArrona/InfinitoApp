@@ -42,8 +42,6 @@ class EquipoController extends Controller
         /*$equipo = request()->except('_token');
         Equipo::insert($equipo);*/
         $equipo = new Equipo($request->input());
-        //Accedemos a los datos del usuario logeado
-        $equipo->id_usuario = Auth::user()->id;
         $equipo->save();
         return redirect('equipo/')->with('estatus', 'Se guardo correctamente el equipo: '.$equipo->equipo);
     }

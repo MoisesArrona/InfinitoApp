@@ -19,6 +19,7 @@ class CreateProductosTable extends Migration
             $table->string('modelo', 50);
             $table->string('nombre', 50);
             $table->integer('existencia');
+            $table->double('precio', 8,2);
             $table->string('foto')->nullable();
             $table->unsignedBigInteger('id_tipo');
             $table->foreign('id_tipo')->references('id')->on('tipos');
