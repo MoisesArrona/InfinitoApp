@@ -6,7 +6,6 @@
     <!-- Mensaje -->
     @include('mensajes.satisfactorio')
 
-
     <div class="row">
         <!-- Acceso a tipo de producto -->
         <div class="col-md-6">

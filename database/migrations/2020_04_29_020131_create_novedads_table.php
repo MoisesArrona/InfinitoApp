@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateReportesTable extends Migration
+class CreateNovedadsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,11 @@ class CreateReportesTable extends Migration
      */
     public function up()
     {
-        Schema::create('reportes', function (Blueprint $table) {
+        Schema::create('novedades', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre', 50);
-            $table->string('descripcion', 150);
+            $table->string('titulo', 50);
+            $table->string('cuerpo');
             $table->string('foto')->nullable();
-            $table->string('remoto', 50);
-            $table->string('remoto_id', 50);
-            $table->string('remoto_pass', 50);
-            $table->string('estatus');
             $table->unsignedBigInteger('id_usuario');
             $table->foreign('id_usuario')->references('id')->on('users');
             $table->timestamps();
@@ -35,6 +31,6 @@ class CreateReportesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reportes');
+        Schema::dropIfExists('novedades');
     }
 }

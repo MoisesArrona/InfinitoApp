@@ -92,30 +92,10 @@
                         <h4 class="text-section">Otros</h4>
                     </li>
                     <li class="nav-item">
-                        <a data-toggle="collapse" href="#base">
-                            <i class="fas fa-layer-group"></i>
-                            <p>Base</p>
-                            <span class="caret"></span>
+                        <a href="/novedad/">
+                            <i class="fas fa-highlighter"></i>
+                            <p>Novedades</p>
                         </a>
-                        <div class="collapse" id="base">
-                            <ul class="nav nav-collapse">
-                                <li>
-                                    <a href="components/avatars.html">
-                                        <span class="sub-item">Ayuda</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="components/buttons.html">
-                                        <span class="sub-item">Novedades</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="components/buttons.html">
-                                        <span class="sub-item">Contacto</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
                     </li>
                 </ul>
             @elseif(auth()->user()->id_rol == 2)
