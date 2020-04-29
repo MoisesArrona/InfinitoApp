@@ -16,16 +16,22 @@
                         <div class="form-group">
                             <label for="">Nombre</label>
                             <input class="form-control" type="text" value="{{$usuario->name}}" name="name">
+                            @error('password')
+                                <code>{{$message}}</code>
+                            @enderror
                         </div>
                         
                         <div class="form-group">
                             <label for="">Correo</label>
                             <input class="form-control" type="text" value="{{$usuario->email}}" name="email" >
+                            @error('password')
+                                <code>{{$message}}</code>
+                            @enderror
                         </div>
 
                         <div class="form-group">
                             <label for="">Contraseña</label>
-                            <input class="form-control" type="password" name="password" required>
+                            <input class="form-control" type="password" name="password">
                             @error('password')
                                 <code>{{$message}}</code>
                             @enderror

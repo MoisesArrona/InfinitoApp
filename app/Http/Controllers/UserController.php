@@ -9,6 +9,7 @@ use App\Empresa;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\UsuarioRequest;
 use App\Reporte;
+use App\Tarea;
 
 class UserController extends Controller
 {
@@ -67,7 +68,8 @@ class UserController extends Controller
     {
         $usuario = User::find($id);
         $reportes = Reporte::where('id_usuario','=',$id)->get();
-        return view('usuario.mostrar', compact(['usuario', 'reportes']));
+        $tareas = Tarea::where('id_usuario','=',$id)->get();
+        return view('usuario.mostrar', compact(['usuario', 'reportes', 'tareas']));
     }
 
     /**
@@ -90,7 +92,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $usuario)
+    public function update(UsuarioRequest $request, User $usuario)
     {
         $usuario->fill($request->all());
         //Condicionamos para saber si existe una foto en la peticion
@@ -100,7 +102,7 @@ class UserController extends Controller
             $name = $request->email.'_'.now().'.png';
             $usuario['foto'] = $name;
             $file->move(public_path().'/imagenes/usuarios/',$name);
-        }        
+        }
         $usuario['password'] = Hash::make($request->input('password'));
         $usuario->save();
         return redirect('usuario/'.$usuario->id)->with('estatus', 'Se edito correctamente');

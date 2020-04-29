@@ -18,10 +18,6 @@
                 @endforeach 
             </div>
         @endisset
-        <div class="card-header">
-            <div class="card-title">Recomendaciones</div>
-            <p class="card-category">Ingresa correctamente la información</p>
-        </div>
     </div>
 @elseif($errors)
     <div class="card shadow mb-4">

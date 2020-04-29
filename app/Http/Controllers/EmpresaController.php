@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Empresa;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\EmpresaRequest;
 
@@ -52,7 +53,8 @@ class EmpresaController extends Controller
     public function show($id)
     {
         $empresa = Empresa::find($id);
-        return view('empresa.mostrar', compact('empresa'));
+        $usuarios = User::where('id_empresa', '=', $id)->get();
+        return view('empresa.mostrar', compact(['empresa', 'usuarios']));
     }
 
     /**

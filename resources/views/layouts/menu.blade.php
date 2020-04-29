@@ -80,9 +80,9 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="/usuario/">
-                            <i class="fas fa-user-alt"></i>
-                            <p>Usuarios</p>
+                        <a href="/empresa/">
+                            <i class="fas fa-building"></i>
+                            <p>Empresa</p>
                         </a>
                     </li>
                     <li class="nav-section">

@@ -6,48 +6,14 @@
     <!-- Mensaje -->
     @include('mensajes.satisfactorio')
 
-
-    <div class="row">
-        <!-- Acceso a empresa -->
-        <div class="col-md-6">
-            <a href="/empresa/" class="card card-stats card-round btn">
-                <div class="card-body ">
-                    <div class="row">
-                        <div class="col-5">
-                            <div class="icon-big text-center">
-                                <i class="flaticon-suitcase text-warning"></i>
-                            </div>
-                        </div>
-                        <div class="col col-stats">
-                            <div class="numbers">
-                                <p class="card-category">Empresas</p>
-                                <h4 class="card-title">Administra</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
-
-        <div class="col-md-6">
-            <a href="/roles/" class="card card-stats card-round btn">
-                <div class="card-body ">
-                    <div class="row">
-                        <div class="col-5">
-                            <div class="icon-big text-center">
-                                <i class="flaticon-interface text-warning"></i>
-                            </div>
-                        </div>
-                        <div class="col col-stats">
-                            <div class="numbers">
-                                <p class="card-category">Roles de usuario</p>
-                                <h4 class="card-title">Administra</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
+    <!--Botones de direccion -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <a href="/empresa/" class="btn btn-info btn-icon-split">
+            <span class="icon text-white-50">
+                <i class="flaticon-box"></i>
+            </span>
+            <span class="text">Empresas</span>
+        </a>
     </div>
 
     <div class="row">

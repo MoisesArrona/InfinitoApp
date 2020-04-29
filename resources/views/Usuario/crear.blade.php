@@ -12,20 +12,23 @@
                 <div class="card-body">
                     <form action="/usuario" method="post" enctype="multipart/form-data">
                         @csrf
-                        <div class="form-group">
-                            <label for="">Nombre</label>
-                            <input class="form-control" type="text" value="{{old('name')}}" name="name">
-                            @error('name')
-                                <code>{{$message}}</code>
-                            @enderror
-                        </div>
                         
-                        <div class="form-group">
-                            <label for="">Correo</label>
-                            <input class="form-control" type="text" value="{{old('email')}}" name="email" >
-                            @error('email')
-                                <code>{{$message}}</code>
-                            @enderror
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="">Nombre</label>
+                                <input class="form-control" type="text" value="{{old('name')}}" name="name">
+                                @error('name')
+                                    <code>{{$message}}</code>
+                                @enderror
+                            </div>
+                            
+                            <div class="form-group col-md-6">
+                                <label for="">Correo</label>
+                                <input class="form-control" type="text" value="{{old('email')}}" name="email" >
+                                @error('email')
+                                    <code>{{$message}}</code>
+                                @enderror
+                            </div>
                         </div>
                 
                         <div class="form-group">
@@ -36,11 +39,21 @@
                             @enderror
                         </div>
                 
-                        <label for="">Selecciona la foto</label>
-                        <div class="custom-file">
-                            <input class="custom-file-input" type="file" name="foto">
-                            <label class="custom-file-label" for="customFile">Selecciona la foto</label>
-                            @error('foto')
+                        <div class="form-group">
+                            <label for="">Selecciona la foto</label>
+                            <div class="custom-file">
+                                <input class="custom-file-input" type="file" name="foto">
+                                <label class="custom-file-label" for="customFile">Selecciona la foto</label>
+                                @error('foto')
+                                    <code>{{$message}}</code>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">Descripcion</label>
+                            <input class="form-control" type="text" value="{{old('descripcion')}}" name="descripcion" >
+                            @error('descripcion')
                                 <code>{{$message}}</code>
                             @enderror
                         </div>

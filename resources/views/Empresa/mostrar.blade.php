@@ -55,5 +55,29 @@
                </div>
            </div>
        </div>
+       <!--Usuarios-->
+       <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="card-title fw-mediumbold">Usuarios de la empresa</div>
+                <div class="card-list">
+                    @foreach ($usuarios as $usuario)
+                        <div class="item-list">
+                            <div class="avatar">
+                                <img src="/imagenes/usuarios/{{$usuario->foto}}" alt="..." class="avatar-img rounded-circle">
+                            </div>
+                            <div class="info-user ml-3">
+                                <div class="username">{{$usuario->name}}</div>
+                                <div class="status">{{$usuario->descripcion}}</div>
+                            </div>
+                            <a href="/usuario/{{$usuario->id}}" class="btn btn-link btn-info">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </div>
    </div>
 @endsection

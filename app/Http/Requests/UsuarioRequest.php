@@ -28,7 +28,7 @@ class UsuarioRequest extends FormRequest
             'email' => ['required', 'max:150', 'email'],
             'password' => ['required', 'max:150'],
             'foto' => ['file', 'mimes:jpeg,bmp,png'],
-            'descripcion' => ['max:50'],
+            'descripcion' => ['max:150'],
             'id_rol' => ['required', 'integer'],
             'id_empresa' => ['required', 'integer'],
         ];

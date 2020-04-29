@@ -135,6 +135,15 @@
                                                                     <th style="width: 10%">Acciones</th>
                                                                 </tr>
                                                             </thead>
+                                                            <tfoot>
+                                                                <tr>
+                                                                    <th>Nombre</th>
+                                                                    <th>Descripcion</th>
+                                                                    <th>Estatus</th>
+                                                                    <th>Responsable</th>
+                                                                    <th style="width: 10%">Acciones</th>
+                                                                </tr>
+                                                            </tfoot>
                                                             <tbody>
                                                                 @foreach ($tareas as $tarea)
                                                                     <tr>
