@@ -3,13 +3,12 @@
 @section('title', 'Informacion el ticket')
 
 @section('contenido')
-
     <!-- Mensaje -->
     @include('mensajes.satisfactorio')
 
     <!-- Botones de direccion -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <a href="/reporte" class="btn btn-primary btn-icon-split">
+        <a href="/reporte" class="btn btn-info btn-icon-split">
             <span class="icon text-white-50">
                 <i class="fas fa-arrow-left"></i>
             </span>
@@ -51,8 +50,8 @@
                                     <p>Cliente: {{$reporte->cliente->name}}</p>
                                 </div>
                                 <div class="tab-pane fade" id="v-pills-profile-icons" role="tabpanel" aria-labelledby="v-pills-profile-tab-icons">
-                                    <p>Dado de alta: {{$reporte->created_at}}</p>
-                                    <p>Modificado: {{$reporte->updated_at}}</p>
+                                    <p>Registrado: {{$reporte->created_at->isoFormat('D [de] MMMM [del] YYYY')}}</p>
+                                    <p>Modificado: {{$reporte->updated_at->isoFormat('D [de] MMMM [del] YYYY')}}</p>
                                     <p class="text-center card-title">Información de movimiento</p>
                                     <p class="text-center ">Muestra quien dio seguimiento al ticket</p>
                                     @foreach ($detalles as $detalle)
@@ -77,9 +76,10 @@
                             <div class="info-user ml-3">
                                 <div class="username">{{$reporte->nombre}}</div>
                                 <div class="status">{{$reporte->cliente->name}}</div>
+                                <div class="status @if ($reporte->estatus == 'inicio') text-danger @elseif($reporte->estatus == 'proceso') text-warning @endif">{{$reporte->estatus}}</div>
                             </div>
                             <a href="/reporte/{{$reporte->id}}/edit" class="btn btn-link btn-info">
-                                <i class="fas fa-check"></i>
+                                <i class="fas fa-angle-double-right"></i>
                             </a>
                         </div>
                     @endforeach

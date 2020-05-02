@@ -6,12 +6,14 @@
     @include('mensajes.satisfactorio')
 
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <a href="reporte/create" class="btn btn-primary btn-icon-split">
-            <span class="icon text-white-50">
-            <i class="fas fa-plus"></i>
-            </span>
-            <span class="text">Agregar</span>
-        </a>
+        @if ( auth()->user()->roles->id == 3)
+            <a href="reporte/create" class="btn btn-primary btn-icon-split">
+                <span class="icon text-white-50">
+                <i class="fas fa-plus"></i>
+                </span>
+                <span class="text">Agregar</span>
+            </a>
+        @endif
     </div>
 
     <div class="row">

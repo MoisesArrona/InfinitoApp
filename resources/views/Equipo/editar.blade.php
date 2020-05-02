@@ -3,7 +3,18 @@
 @section('title', 'Editar equipo')
 
 @section('contenido')
+    <!-- Botones de direccion -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <a href="/equipo" class="btn btn-primary btn-icon-split">
+            <span class="icon text-white-50">
+                <i class="fas fa-arrow-left"></i>
+            </span>
+            <span class="text">Regresar</span>
+        </a>
+    </div>
+
     <div class="row">
+        <!-- Formulario -->
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">

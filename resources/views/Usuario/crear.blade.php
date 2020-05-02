@@ -3,7 +3,18 @@
 @section('title', 'Dar de alta usuario')
 
 @section('contenido')
+    <!-- Botones de direccion -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <a href="/usuario" class="btn btn-info btn-icon-split">
+            <span class="icon text-white-50">
+                <i class="flaticon-left-arrow"></i>
+            </span>
+            <span class="text">Regresar</span>
+        </a>
+    </div>
+
     <div class="row">
+        <!--Formulario--->
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
@@ -92,6 +103,9 @@
             </div>            
         </div>
         
-        
+        <!-- Mensaje -->
+        <div class="col-md-4">
+            @include('mensajes.error')
+        </div>
     </div>
 @endsection

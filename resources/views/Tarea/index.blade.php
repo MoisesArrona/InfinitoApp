@@ -45,7 +45,7 @@
                                 <div class="tab-pane fade show active" id="v-pills-home-icons" role="tabpanel" aria-labelledby="v-pills-home-tab-icons">
                                     <div class="row">
                                         @foreach ($tareasI as $tarea)
-                                            <div class="col-md-4 float-right">
+                                            <div class="col-md-4 float-right @if ( auth()->user()->id == $tarea->id_usuario) border border-success @endif">
                                                 <div class="card card-stats @if($tarea->estatus == 'inicio') card-danger @elseif($tarea->estatus == 'proceso') card-warning @endif card-round">
                                                     <div class="card-body">
                                                         <div class="row">
@@ -55,7 +55,7 @@
                                                                     <p class="card-category">Estatus: {{$tarea->estatus}}</p>
                                                                     <p class="card-category">Responsable: {{$tarea->personal->name}}</p>
                                                                     <div class="btn-group dropdown">
-                                                                        <button type="button" class="btn btn-secundary btn-sm dropdown-toggle" data-toggle="dropdown">
+                                                                        <button type="button" class="btn btn-sm dropdown-toggle" data-toggle="dropdown">
                                                                             <span class="btn-label">
                                                                                 <i class="fa fa-cog"></i>
                                                                             </span>

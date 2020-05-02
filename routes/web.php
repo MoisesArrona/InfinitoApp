@@ -34,14 +34,36 @@ Route::group(['middleware' => 'auth'], function () {
         
         Route::resource('/equipo', 'EquipoController');
 
-        Route::resource('/tarea', 'TareaController');
-                    
-        Route::resource('/reporte', 'ReporteController');
-
         Route::resource('/empresa', 'EmpresaController');
         
         Route::resource('/usuario', 'UserController');
+        
+    });
+
+    Route::group(['middleware' => 'personal'], function () {
+        Route::get('/personal', 'HomeController@personal');
+    });
+
+    Route::group(['middleware' => 'cliente'], function () {
+        Route::get('/cliente', 'HomeController@cliente');
+
+        Route::resource('/reporte', 'ReporteController')->except([
+            'edit', 'update'
+        ]);
+
+        Route::resource('/novedad', 'NovedadController')->only([
+            'index'
+        ]);
+
+    });
+
+    Route::group(['middleware' => ['administrador' || 'personal']], function () {        
+        Route::resource('/tarea', 'TareaController');
 
         Route::resource('/novedad', 'NovedadController');
+
+        Route::resource('/reporte', 'ReporteController')->except([
+            'create', 'store'
+        ]);
     });
 });

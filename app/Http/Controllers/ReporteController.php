@@ -58,7 +58,7 @@ class ReporteController extends Controller
         $reporte->save();
         //Envio de correo de alta de reporte
         Mail::to(auth()->user()->email)->send(new ReporteMail($reporte));
-        return redirect('reporte/')->with('estatus', 'Se levanto el ticket'.$reporte->nombre.' correctamente');
+        return redirect('reporte/')->with('estatus', 'Se levanto el ticket: '.$reporte->nombre.' correctamente');
     }
 
     /**
@@ -105,7 +105,7 @@ class ReporteController extends Controller
         $detalle->id_reporte = $reporte->id;
         $detalle->save();
         Mail::to(auth()->user()->email)->send(new ReporteMail($reporte));
-        return redirect('reporte/')->with('estatus', 'Se edito correctamente el ticket: '.$reporte->nombre);
+        return redirect('reporte/')->with('estatus', 'Se atendio correctamente el ticket: '.$reporte->nombre);
     }
 
     /**

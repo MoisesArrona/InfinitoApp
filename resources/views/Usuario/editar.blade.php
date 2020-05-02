@@ -3,6 +3,16 @@
 @section('title', 'Editar usuario')
 
 @section('contenido')
+    <!-- Botones de direccion -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <a href="/usuario" class="btn btn-info btn-icon-split">
+            <span class="icon text-white-50">
+                <i class="flaticon-left-arrow"></i>
+            </span>
+            <span class="text">Regresar</span>
+        </a>
+    </div>
+    
     <div class="row">
         <div class="col-md-8">
             <div class="card">
@@ -16,7 +26,7 @@
                         <div class="form-group">
                             <label for="">Nombre</label>
                             <input class="form-control" type="text" value="{{$usuario->name}}" name="name">
-                            @error('password')
+                            @error('name')
                                 <code>{{$message}}</code>
                             @enderror
                         </div>
@@ -24,7 +34,7 @@
                         <div class="form-group">
                             <label for="">Correo</label>
                             <input class="form-control" type="text" value="{{$usuario->email}}" name="email" >
-                            @error('password')
+                            @error('email')
                                 <code>{{$message}}</code>
                             @enderror
                         </div>

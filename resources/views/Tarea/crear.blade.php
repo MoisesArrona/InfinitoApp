@@ -3,6 +3,16 @@
 @section('title', 'Dar de alta tarea')
 
 @section('contenido')
+    <!-- Botones de direccion -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <a href="/tarea" class="btn btn-info btn-icon-split">
+            <span class="icon text-white-50">
+                <i class="flaticon-left-arrow"></i>
+            </span>
+            <span class="text">Regresar</span>
+        </a>
+    </div>
+
     <div class="row">
         <!-- Formulario -->
         <div class="col-md-8">
@@ -22,7 +32,7 @@
                         </div>
                 
                         <div class="form-group">
-                            <label for="">descripcion</label>
+                            <label for="">Descripcion</label>
                             <input class="form-control" type="text" value="{{old('descripcion')}}" name="descripcion" >
                             @error('descripcion')
                                 <code>{{$message}}</code>
@@ -43,7 +53,7 @@
                                 <select class="form-control input-square" name="id_usuario">
                                     <option value="{{old('id_usuario')}}">--Por favor selecciona el empleado--</option>
                                     @foreach ($usuarios as $usuario)
-                                        <option value="{{$usuario->id}}"> {{$usuario->name}}</option>
+                                        <option value="{{$usuario->id}}"> {{$usuario->name}} -- {{$usuario->descripcion}}</option>
                                     @endforeach
                                 </select>
                                 @error('id_usuario')
@@ -57,6 +67,7 @@
                 </div>
             </div>            
         </div>
+        
         <!-- Mensaje -->
         <div class="col-md-4">
             @include('mensajes.error')

@@ -46,8 +46,8 @@
                                     <p class="card-text">Domiclio: {{$empresa->domicilio}}</p>
                                </div>
                                <div class="tab-pane fade" id="v-pills-profile-icons" role="tabpanel" aria-labelledby="v-pills-profile-tab-icons">
-                                   <p>Dado de alta: {{$empresa->created_at}}</p>
-                                   <p>Modificado: {{$empresa->updated_at}}</p>
+                                <p>Registrado: {{$empresa->created_at->isoFormat('D [de] MMMM [del] YYYY')}}</p>
+                                <p>Modificado: {{$empresa->updated_at->isoFormat('D [de] MMMM [del] YYYY')}}</p>
                                </div>
                            </div>
                        </div>

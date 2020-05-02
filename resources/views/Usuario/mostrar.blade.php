@@ -6,16 +6,6 @@
      <!-- Mensaje -->
      @include('mensajes.satisfactorio')
 
-     <!-- Botones de direccion -->
-     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-         <a href="/usuario" class="btn btn-primary btn-icon-split">
-             <span class="icon text-white-50">
-                 <i class="fas fa-arrow-left"></i>
-             </span>
-             <span class="text">Regresar</span>
-         </a>
-     </div>
-
      <div class="row">
         <!-- Informacio -->
         <div class="col-md-8">
@@ -34,9 +24,6 @@
                         <div class="job">{{$usuario->roles->nombre}}</div>
                         <div class="job">{{$usuario->empresas->nombre}}</div>
                         <div class="desc">{{$usuario->descripcion}}</div>
-                        <div class="view-profile">
-                            <a href="#" class="btn btn-secondary btn-block">Ver perfil completo</a>
-                        </div>
                     </div>
                 </div>
                 <div class="card-footer">

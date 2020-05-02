@@ -52,8 +52,8 @@
                                     <p class="card-text">Tipo: {{$producto->tipos->nombre}}</p>
                                 </div>
                                 <div class="tab-pane fade" id="v-pills-profile-icons" role="tabpanel" aria-labelledby="v-pills-profile-tab-icons">
-                                    <p>Dado de alta: {{$producto->created_at}}</p>
-                                    <p>Modificado: {{$producto->updated_at}}</p>
+                                    <p>Registrado: {{$producto->created_at->isoFormat('D [de] MMMM [del] YYYY')}}</p>
+                                    <p>Modificado: {{$producto->updated_at->isoFormat('D [de] MMMM [del] YYYY')}}</p>
                                 </div>
                             </div>
                         </div>

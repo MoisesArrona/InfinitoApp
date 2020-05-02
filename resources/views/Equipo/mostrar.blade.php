@@ -53,8 +53,8 @@
                                     <p>Dominio: {{$equipo->dominio}}</p>
                                     <p>IPV4: {{$equipo->ipv4}}</p>
                                     <p>Puerto: {{$equipo->Puerto}}</p>
-                                    <p>Dado de alta: {{$equipo->created_at}}</p>
-                                    <p>Modificado: {{$equipo->updated_at}}</p>
+                                    <p>Registrado: {{$equipo->created_at->isoFormat('D [de] MMMM [del] YYYY')}}</p>
+                                    <p>Modificado: {{$equipo->updated_at->isoFormat('D [de] MMMM [del] YYYY')}}</p>
                                 </div>
                             </div>
                         </div>

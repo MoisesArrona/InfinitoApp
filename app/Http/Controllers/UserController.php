@@ -20,7 +20,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $usuarios = User::all();
+        $usuarios = User::where('id_rol', '=', 3)->get();
         return view('usuario.index', compact('usuarios'));
     }
 
@@ -31,9 +31,10 @@ class UserController extends Controller
      */
     public function create()
     {
+        $usuarios = User::all();
         $roles = Rol::all();
         $empresas = Empresa::all();
-        return view('usuario.crear', compact(['roles', 'empresas']));
+        return view('usuario.crear', compact(['roles', 'empresas', 'usuarios']));
     }
 
     /**
@@ -80,9 +81,10 @@ class UserController extends Controller
      */
     public function edit(User $usuario)
     {
+        $usuarios = User::all();
         $roles = Rol::all();
         $empresas = Empresa::all();
-        return view('usuario.editar', compact(['roles', 'usuario', 'empresas']));
+        return view('usuario.editar', compact(['roles', 'usuario', 'empresas', 'usuarios']));
     }
 
     /**

@@ -47,8 +47,8 @@
                                     <p>Domicilio: {{$proveedor->domicilio}}</p>
                                 </div>
                                 <div class="tab-pane fade" id="v-pills-profile-icons" role="tabpanel" aria-labelledby="v-pills-profile-tab-icons">
-                                    <p>Dado de alta: {{$proveedor->created_at}}</p>
-                                    <p>Modificado: {{$proveedor->updated_at}}</p>
+                                    <p>Registrado {{$proveedor->created_at->isoFormat('D [de] MMMM [del] YYYY')}}</p>
+                                    <p>Modificado: {{$proveedor->updated_at->isoFormat('D [de] MMMM [del] YYYY')}}</p>
                                 </div>
                             </div>
                         </div>

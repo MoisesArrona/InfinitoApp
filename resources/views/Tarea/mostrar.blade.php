@@ -46,8 +46,8 @@
                                     <p>Responsable: {{$tarea->personal->name}}</p>
                                 </div>
                                 <div class="tab-pane fade" id="v-pills-profile-icons" role="tabpanel" aria-labelledby="v-pills-profile-tab-icons">
-                                    <p>Dado de alta: {{$tarea->created_at}}</p>
-                                    <p>Modificado: {{$tarea->updated_at}}</p>
+                                    <p>Registrado: {{$tarea->created_at->isoFormat('D [de] MMMM [del] YYYY')}}</p>
+                                    <p>Modificado: {{$tarea->updated_at->isoFormat('D [de] MMMM [del] YYYY')}}</p>
                                     <p class="text-center card-title">Información de movimiento</p>
                                     <p class="text-center ">Muestra quien dio seguimiento a la tarea</p>
                                     @foreach ($detalles as $detalle)
@@ -61,6 +61,7 @@
                 </div>
             </div>
         </div>
+        
         <!--Segerencias-->
         <div class="card col-md-4">
             <div class="card-body">
@@ -72,9 +73,10 @@
                             <div class="info-user ml-3">
                                 <div class="username">{{$tarea->nombre}}</div>
                                 <div class="status">{{$tarea->personal->name}}</div>
+                                <div class="status @if ($tarea->estatus == 'inicio') text-danger @elseif($tarea->estatus == 'proceso') text-warning @endif">{{$tarea->estatus}}</div>                                
                             </div>
                             <a href="/tarea/{{$tarea->id}}/edit" class="btn btn-link btn-info">
-                                <i class="fas fa-check"></i>
+                                <i class="fas fa-angle-double-right"></i>
                             </a>
                         </div>
                     @endforeach
