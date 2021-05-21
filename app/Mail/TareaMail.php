@@ -19,7 +19,7 @@ class TareaMail extends Mailable
      */
     public function __construct($tarea)
     {
-        $this->tarea=$tarea;
+        $this->tarea = $tarea;
     }
 
     /**

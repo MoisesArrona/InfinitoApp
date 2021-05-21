@@ -13,22 +13,13 @@ use App\Tarea;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $usuarios = User::where('id_rol', '=', 3)->get();
         return view('usuario.index', compact('usuarios'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $usuarios = User::all();
@@ -37,12 +28,6 @@ class UserController extends Controller
         return view('usuario.crear', compact(['roles', 'empresas', 'usuarios']));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(UsuarioRequest $request)
     {
         $usuario = new User($request->input());
@@ -59,12 +44,6 @@ class UserController extends Controller
         return redirect('usuario/')->with('estatus', 'Se guardo correctamente');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         $usuario = User::find($id);
@@ -73,12 +52,6 @@ class UserController extends Controller
         return view('usuario.mostrar', compact(['usuario', 'reportes', 'tareas']));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit(User $usuario)
     {
         $usuarios = User::all();
@@ -87,13 +60,6 @@ class UserController extends Controller
         return view('usuario.editar', compact(['roles', 'usuario', 'empresas', 'usuarios']));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(UsuarioRequest $request, User $usuario)
     {
         $usuario->fill($request->all());
@@ -110,12 +76,6 @@ class UserController extends Controller
         return redirect('usuario/'.$usuario->id)->with('estatus', 'Se edito correctamente');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         //

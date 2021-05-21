@@ -8,34 +8,19 @@ use App\Http\Requests\TipoRequest;
 
 class TipoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $tipos = Tipo::all();
         return view('tipo.index', compact('tipos'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $sugerencias = Tipo::all();
         return view('tipo.crear', compact('sugerencias'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(TipoRequest $request)
     {
         $tipo = new Tipo($request->input());
@@ -43,37 +28,18 @@ class TipoController extends Controller
         return redirect('tipo/')->with('estatus', 'Se guardo correctamente: '.$tipo->nombre);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Tipo  $tipo
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         $tipo = Tipo::find($id);
         return view('tipo.mostrar', compact('tipo'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Tipo  $tipo
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Tipo $tipo)
     {
         $sugerencias = Tipo::all();
         return view('tipo/editar', compact(['tipo', 'sugerencias']));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Tipo  $tipo
-     * @return \Illuminate\Http\Response
-     */
     public function update(TipoRequest $request, Tipo $tipo)
     {
         /*$tipo = request()->except('_method', '_token');
@@ -83,12 +49,6 @@ class TipoController extends Controller
         return redirect('tipo/'.$tipo->id)->with('estatus', 'Se edito correctamente: '.$tipo->nombre);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Tipo  $tipo
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Tipo $tipo)
     {
         //

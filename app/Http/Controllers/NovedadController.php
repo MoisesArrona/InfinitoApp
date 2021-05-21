@@ -8,33 +8,18 @@ use Illuminate\Http\Request;
 
 class NovedadController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $novedades = Novedad::orderBy('id','DESC')->get();
         return view('novedad.index', compact('novedades'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('novedad.crear');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(NovedadRequest $request)
     {
         $novedad = new Novedad($request->input());
@@ -51,46 +36,21 @@ class NovedadController extends Controller
         return redirect('novedad/')->with('estatus', 'Se guardo correctamente: '.$novedad->titulo);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Novedad  $novedad
-     * @return \Illuminate\Http\Response
-     */
     public function show(Novedad $novedad)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Novedad  $novedad
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Novedad $novedad)
     {
         return view('novedad.editar', compact('novedad'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Novedad  $novedad
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Novedad $novedad)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Novedad  $novedad
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Novedad $novedad)
     {
         //

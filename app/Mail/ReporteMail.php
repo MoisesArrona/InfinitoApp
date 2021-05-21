@@ -19,7 +19,7 @@ class ReporteMail extends Mailable
      */
     public function __construct($reporte)
     {
-        $this->reporte=$reporte;
+        $this->reporte = $reporte;
     }
 
     /**

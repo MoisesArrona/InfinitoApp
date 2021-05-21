@@ -13,11 +13,7 @@ use Illuminate\Support\Carbon;
 
 class ReporteController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $reportesI = Reporte::where('estatus','!=','finalizado')->get();
@@ -26,23 +22,12 @@ class ReporteController extends Controller
         return view('reporte.index', compact(['reportesI', 'reportesT', 'reportes']));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         /*$usuario = User::all();*/
         return view('reporte.crear');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(ReporteRequest $request)
     {
         $reporte = new Reporte($request->input());
@@ -61,12 +46,6 @@ class ReporteController extends Controller
         return redirect('reporte/')->with('estatus', 'Se levanto el ticket: '.$reporte->nombre.' correctamente');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Reporte  $reporte
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         $reporte = Reporte::find($id);
@@ -75,25 +54,12 @@ class ReporteController extends Controller
         return view('reporte.mostrar', compact(['reporte', 'detalles', 'reportes']));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Reporte  $reporte
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Reporte $reporte)
     {
         /*$usuario = User::all();*/
         return view('reporte/editar', compact('reporte'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Reporte  $reporte
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Reporte $reporte)
     {
         $reporte->estatus =$request->input('estatus');
@@ -108,12 +74,6 @@ class ReporteController extends Controller
         return redirect('reporte/')->with('estatus', 'Se atendio correctamente el ticket: '.$reporte->nombre);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Equipo  $equipo
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Reporte $reporte)
     {
         //
