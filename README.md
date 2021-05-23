@@ -1,7 +1,7 @@
 # InfinitoApp 👾
 ### Web aplication for Infinito Computación
 
-Esta aplicación controla las tareas asignadas en un grupo de trabajo, incopora un mesa de ayuda donde los clientes reportan problemas y se les da seguimiento.
+This application controls the tasks assigned in a work group, incorporates a help desk where customers report problems and are followed up.
 
 ### Technologies 💻
 - HTML5
