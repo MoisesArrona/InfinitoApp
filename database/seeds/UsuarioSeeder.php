@@ -36,5 +36,13 @@ class UsuarioSeeder extends Seeder
         $usuario->id_rol = 3;
         $usuario->id_empresa = 2;
         $usuario->save();
+
+        $usuario = new User();
+        $usuario->name = "Cliente Moreno";
+        $usuario->email = "clientenoreno@infinito.com";
+        $usuario->password = Hash::make('Client123');
+        $usuario->id_rol = 3;
+        $usuario->id_empresa = 2;
+        $usuario->save();
     }
 }
