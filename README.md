@@ -79,8 +79,6 @@ email: client@infinito.com
 password: Client123
 ````
 
-
-
 #### Follow me 👨‍💻
 * [GitHub/moisesarrona](https://github.com/MoisesArrona/) - GitHub - Software Enginer
 
