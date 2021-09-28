@@ -1,18 +1,21 @@
 # InfinitoApp 👾
 ### Web aplication for Infinito Computación
 
-This application controls the tasks assigned in a work group, incorporates a help desk where customers report problems and are followed up.
+This web application controls the tasks assigned in a work group, incorporates a help desk where customers report problems and are followed up.
 
-### Technologies 💻
-- HTML5
-- CSS3
+## Technologies 💻
+- Laravel 6*
+    - Migrations (Create DB)
+    - Seeders (Insert to DB)
+    - Auth (Laravel/ui)
+- Bootstrap 4*
 - JavaScript
     - JQuery
-- Bootstrap 4*
-- PHP
-    -Laravel 6*
 
-### Requirements 📋
+## Dependencies 🏗️
+- Carbon (DateTime)
+
+## Requirements 📋
 - Apache2
 - MySQL
 - Composer
@@ -28,9 +31,9 @@ Open the project path in the terminal
 
 ### Step 3
 Update dependeces with
-````
+```
 composer update
-`````
+```
 
 ### Step 4
 Copy development file
@@ -40,9 +43,9 @@ cp .env.example .env
 
 ### Step 5
 Generate key to hashing
-````
+```
 php artisan key:generate
-`````
+```
 
 ### Step 6
 Modify file .env with your credentials mysql
@@ -79,7 +82,7 @@ email: client@infinito.com
 password: Client123
 ````
 
-#### Follow me 👨‍💻
-* [GitHub/moisesarrona](https://github.com/MoisesArrona/) - GitHub - Software Enginer
-
-* [Instagram/moisesarrona](https://www.instagram.com/moisesarrona/) - Instgram - Software Enginer
+## Follow me 👨‍💻
+Follow me for more projects and photos let's gooooo
+* [github/moisesarrona](https://github.com/MoisesArrona/)
+* [instagram/moisesarrona](https://www.instagram.com/moisesarrona/) 
