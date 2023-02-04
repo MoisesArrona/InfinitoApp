@@ -12,7 +12,7 @@
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title text-center">Listado de tipo de equipos</h4>
-                    <a href="equipo/create" class="btn btn-primary float-right">
+                    <a href="/equipo/create" class="btn btn-primary float-right">
                         <span class="btn-label">
                             <i class="flaticon-add"></i>
                         </span>

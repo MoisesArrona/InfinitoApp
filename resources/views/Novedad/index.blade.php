@@ -7,7 +7,7 @@
     @include('mensajes.satisfactorio')
 
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <a href="novedad/create" class="btn btn-primary btn-icon-split">
+        <a href="/novedad/create" class="btn btn-primary btn-icon-split">
             <span class="icon text-white-50">
             <i class="flaticon-envelope"></i>
             </span>

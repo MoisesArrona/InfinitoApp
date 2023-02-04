@@ -6,7 +6,7 @@
     @include('mensajes.satisfactorio')
 
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <a href="tarea/create" class="btn btn-info btn-icon-split">
+        <a href="/tarea/create" class="btn btn-info btn-icon-split">
             <span class="icon text-white-50">
             <i class="fas fa-plus"></i>
             </span>
@@ -64,8 +64,8 @@
                                                                             <li>
                                                                                 <p class="dropdown-item">Opciones</p>
                                                                                 <div class="dropdown-divider"></div>
-                                                                                <a class="dropdown-item" href="tarea/{{$tarea->id}}/edit">Siguiente estatus</a>
-                                                                                <a class="dropdown-item" href="tarea/{{$tarea->id}}/">Ver</a>
+                                                                                <a class="dropdown-item" href="/tarea/{{$tarea->id}}/edit">Siguiente estatus</a>
+                                                                                <a class="dropdown-item" href="/tarea/{{$tarea->id}}/">Ver</a>
                                                                             </li>
                                                                         </ul> 
                                                                     </div>
