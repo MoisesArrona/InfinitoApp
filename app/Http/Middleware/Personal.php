@@ -16,12 +16,12 @@ class Personal
     public function handle($request, Closure $next)
     {
         //Usuario logeado
-        if(!(auth()->check())){
+        if(!(auth()->check())) {
             return redirect('/login');
         }
 
         //Usuario personal
-        if(!(auth()->user()->id_rol == 2)){
+        if(!(auth()->user()->id_rol == 2)) {
             abort(403, 'Unauthorized action.');
         }
         return $next($request);

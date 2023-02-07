@@ -16,12 +16,12 @@ class Administrador
     public function handle($request, Closure $next)
     {
         //Usuario logeado
-        if(!(auth()->check())){
+        if(!(auth()->check())) {
             return redirect('/login');
         }
 
         //Usuario administrador
-        if(!(auth()->user()->id_rol == 1)){
+        if(!(auth()->user()->id_rol == 1)) {
             abort(403, 'Unauthorized action.');
         }
 

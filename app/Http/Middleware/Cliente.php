@@ -16,12 +16,12 @@ class Cliente
     public function handle($request, Closure $next)
     {
         //Usuario logeado
-        if(!(auth()->check())){
+        if(!(auth()->check())) {
             return redirect('/login');
         }
 
         //Usuario cliente
-        if(!(auth()->user()->id_rol == 3)){
+        if(!(auth()->user()->id_rol == 3)) {
             abort(403, 'Unauthorized action.');
         }
 
