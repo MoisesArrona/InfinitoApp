@@ -1,7 +1,7 @@
 # InfinitoApp 👾
 This web application controls the tasks assigned in a work group, incorporates a help desk where customers report problems and are followed up.
 
-Version 0.0.0   
+Version 0.0.1   
 Description: Migrate framework from 6 to 8 and change files to run and compile project.
 
 ## Technologies 💻
