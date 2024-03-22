@@ -38,27 +38,27 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('/novedad', NovedadController::class);
     });
     
-    Route::middleware(['personal'])->group(function () {
-        Route::get('/personal', 'HomeController@personal');
+    // Route::middleware(['personal'])->group(function () {
+    //     Route::get('/personal', 'HomeController@personal');
     
-        Route::resource('/tarea', TareaController::class);
+    //     Route::resource('/tarea', TareaController::class);
             
-        Route::resource('/novedad', NovedadController::class);
+    //     Route::resource('/novedad', NovedadController::class);
     
-        Route::resource('/reporte', ReporteController::class)->except([
-            'create', 'store'
-        ]);
-    });
+    //     Route::resource('/reporte', ReporteController::class)->except([
+    //         'create', 'store'
+    //     ]);
+    // });
     
-    Route::middleware(['cliente'])->group(function () {
-        Route::get('/cliente', 'HomeController@cliente');
+    // Route::middleware(['cliente'])->group(function () {
+    //     Route::get('/cliente', 'HomeController@cliente');
     
-        Route::resource('/reporte', ReporteController::class)->except([
-            'edit', 'update'
-        ]);
+    //     Route::resource('/reporte', ReporteController::class)->except([
+    //         'edit', 'update'
+    //     ]);
     
-        Route::resource('/novedad', NovedadController::class)->only([
-            'index'
-        ]);
-    });
+    //     Route::resource('/novedad', NovedadController::class)->only([
+    //         'index'
+    //     ]);
+    // });
 });

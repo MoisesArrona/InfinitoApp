@@ -1,10 +1,13 @@
 # InfinitoApp 👾
 This web application controls the tasks assigned in a work group, incorporates a help desk where customers report problems and are followed up.
 
-Version 0.0.1   
-Description: Migrate framework from 6 to 8 and change files to run and compile project.
+>__v0.0.2__   
+__Author:__ [@moisesarrona](https://github.com/mosesarrona)  
+__Description:__ Update dependecies.
 
-## Technologies 💻
+## Features
+
+### Technologies 💻
 - Laravel 8*
     - Migrations (Create DB)
     - Seeders (Insert to DB)
@@ -13,10 +16,10 @@ Description: Migrate framework from 6 to 8 and change files to run and compile p
 - JavaScript
     - JQuery
 
-## Dependencies 🏗️
+### Dependencies 🏗️
 - Carbon (DateTime)
 
-## Requirements 📋
+### Requirements 📋
 - PHP ^7.3 - ^8.0
 - MySQL 5.7.39
 - Apache2 
@@ -30,64 +33,61 @@ Description: Migrate framework from 6 to 8 and change files to run and compile p
 
 ## Setup 🚀
 
-### Step 1
+- Step 1
 Download the project
 
-### Step 2
+- Step 2
 Update dependeces with
 ```
-~ ❯ composer update
+composer update
 ```
 
-### Step 3
+- Step 3
 Copy development file
 ````
-~ ❯ cp .env.example .env
+p .env.example .env
 ````
 
-### Step 4
+- Step 4
 Generate key to hashing
 ```
-~ ❯ php artisan key:generate
+php artisan key:generate
 ```
 
-### Step 5
+- Step 5
 Modify file .env with your credentials mysql
 
-### Step 6
+- Step 6
 Run migration and seeders with
 ````
 ~ ❯ php artisan migrate --seed
 ````
 
-### Step 7
+- Step 7
 ````
 ~ ❯ php artisan serve
 ````
 
-### Step 8
+- Step 8
 Log in  with this credentials
 
-#### option 1 (Admin)
+**option 1 (Admin)**
 ````
 email: admin@infinito.com
 password: Admin123
 ````
 
-#### option 2 (Employee)
+**option 2 (Employee)**
 ````
 email: employee@infinito.com
 password: Employee123
 ````
 
-#### option 3 (Client)
+**option 3 (Client)**
 ````
 email: client@infinito.com
 password: Client123
 ````
 
-### About me 👨‍💻
-Hi, my name is Moises Arrona I'm creator this api, follow me in for more projects
-
-- [My Github <3](https://github.com/mosesarrona)
-- [My Instagram :)](https://www.instagram.com/moisesarrona/)
+#### About me 👨‍💻
+Hi, my name is **Moises Arrona** I'm creator this library, follow me in [Github](https://github.com/mosesarrona) for more projects or [Instagram](https://www.instagram.com/moisesarrona/) for anything
